@@ -11,7 +11,6 @@ const App = () => {
     return (
         <div className={classNames("app", {hovered: false}, [theme, 'cls1'])}>
             <Navbar />
-            <button onClick={toggleTheme}>Theme switch</button>
             <AppRoute />
         </div>
     );
