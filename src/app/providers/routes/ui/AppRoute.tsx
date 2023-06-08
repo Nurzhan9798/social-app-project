@@ -2,7 +2,7 @@ import React, {Suspense} from 'react';
 import {Route, Routes} from "react-router-dom";
 import {MainPage} from "pages/MainPage";
 import {AboutPage} from "pages/AboutPage";
-import {routeConfig} from "shared/config/routeConfig";
+import {routeConfig} from "shared/config/routre/routeConfig";
 
 export const AppRoute = () => {
     return (
