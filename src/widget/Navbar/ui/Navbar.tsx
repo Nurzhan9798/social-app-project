@@ -13,9 +13,8 @@ export const Navbar = (props: NavbarProps) => {
 
     return (
         <div className={classNames(cls.Navbar, {}, [classnames])}>
-            <ThemeSwitcher />
             <div className={classNames(cls.links, {}, [])}>
-                <AppLink to="/">Main</AppLink>
+                <AppLink to="/" >Main</AppLink>
                 <AppLink to="/about">About</AppLink>
             </div>
         </div>
