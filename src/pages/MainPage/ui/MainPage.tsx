@@ -1,9 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 function MainPage() {
+    const { t } = useTranslation();
     return (
         <div>
-            MAIN PAGE
+            {t('MAIN PAGE')}
         </div>
     );
 }

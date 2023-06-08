@@ -11,7 +11,7 @@ function App() {
 
     return (
         <div className={classNames('app', { hovered: false }, [theme, 'cls1'])}>
-            <Suspense fallback={<div>Loading... </div>}>
+            <Suspense fallback={<div />}>
                 <Navbar />
                 <div className="content-page">
                     <Sidebar />

@@ -1,5 +1,9 @@
 {
   "kz": "kazakh",
   "en": "english",
-  "ru": "russian"
+  "ru": "russian",
+  "Main": "Main",
+  "About": "About",
+  "MAIN PAGE": "MAIN PAGE",
+  "ABOUT PAGE": "ABOUT PAGE"
 }
