@@ -5,13 +5,14 @@ import { AppRoute } from 'app/providers/routes';
 import { Navbar } from 'widget/Navbar';
 import './style/index.scss';
 import { Sidebar } from 'shared/ui/Sidebar';
+import { PageLoader } from 'shared/ui/PageLoader';
 
 function App() {
     const { theme } = useTheme();
 
     return (
         <div className={classNames('app', { hovered: false }, [theme, 'cls1'])}>
-            <Suspense fallback={<div />}>
+            <Suspense fallback={<PageLoader />}>
                 <Navbar />
                 <div className="content-page">
                     <Sidebar />
