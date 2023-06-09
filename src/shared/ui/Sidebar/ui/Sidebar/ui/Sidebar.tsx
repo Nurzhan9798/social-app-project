@@ -17,15 +17,18 @@ export function Sidebar(props: SidebarProps) {
     };
 
     return (
-        <div className={
-            classNames(
-                cls.Sidebar,
-                { [cls.collapsed]: collapsed },
-                [className],
-            )
-        }
+        <div
+            data-testid="sidebar"
+            className={
+                classNames(
+                    cls.Sidebar,
+                    { [cls.collapsed]: collapsed },
+                    [className],
+                )
+            }
         >
             <Button
+                data-testid="sidebar-toggle"
                 onClick={onToggle}
                 theme={ButtonTheme.PRIMARY}
                 className={cls.collapseBtn}

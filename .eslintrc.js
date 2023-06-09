@@ -1,23 +1,23 @@
 module.exports = {
-    "env": {
+    env: {
         "browser": true,
         "es2021": true,
         "jest": true
     },
-    "extends": [
+    extends: [
         "plugin:react/recommended",
         "airbnb",
         'plugin:i18next/recommended',
     ],
     parser: '@typescript-eslint/parser',
-    "parserOptions": {
+    parserOptions: {
         "ecmaFeatures": {
             "jsx": true,
         },
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": [
+    plugins: [
         "react",
         "@typescript-eslint",
         'i18next'
@@ -44,4 +44,12 @@ module.exports = {
     globals: {
         __IS_DEV__: true,
     },
+    overrides: [
+        {
+            files: ['**/src/**/*.test.{ts,tsx}'],
+            rules: {
+                "i18next/no-literal-string": "off"
+            }
+        }
+    ]
 };
