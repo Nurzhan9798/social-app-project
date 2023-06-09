@@ -1,7 +1,12 @@
 @import "reset";
-@import "variables/globals";
-@import "themes/dark";
-@import "themes/light";
+@import "./variables/globals";
+@import "./themes/dark";
+@import "./themes/light";
+
+html,
+body {
+    height: 100vh;
+}
 
 .app {
     font: var(--font-m);
