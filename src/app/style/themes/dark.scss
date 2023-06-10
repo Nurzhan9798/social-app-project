@@ -1,11 +1,12 @@
 .app.dark {
-    --bg-color: #090949;
-    --inverted-bg-color: #e8e8ea;
-    --primary-color: #6cae75;
-    --inverted-primary-color: #0267c1;
-    --secondary-color: #c1cc99;
-    --inverted-secondary-color: #6494aa;
-
-    // loader
-    --loader-bg-color: #c1cc99;
+    // new design
+    --dark-bg-color: #090f11;
+    --bg-color: #0c1214;
+    --light-bg-color: #151c1f;
+    --text-color: #dbdbdb;
+    --hint-color: #555;
+    --danger-color: #d95757;
+    --success-color: #6cd98b;
+    --icon-color: #74a2b2;
+    --accent-color: #5ed3f3;
 }

@@ -23,3 +23,9 @@ DarkMode.args = {
     children: 'Text',
 };
 DarkMode.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const OrangeMode = Template.bind({});
+OrangeMode.args = {
+    children: 'Text',
+};
+OrangeMode.decorators = [ThemeDecorator(Theme.ORANGE)];

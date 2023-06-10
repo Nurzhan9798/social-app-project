@@ -30,7 +30,7 @@ export function Sidebar(props: SidebarProps) {
             <Button
                 data-testid="sidebar-toggle"
                 onClick={onToggle}
-                theme={ButtonTheme.PRIMARY}
+                theme={ButtonTheme.FILLED}
                 className={cls.collapseBtn}
             >
                 {collapsed ? '>' : '<'}
