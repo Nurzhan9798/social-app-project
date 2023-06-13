@@ -14,4 +14,11 @@
     --navbar-height: 50px;
     --sidebar-width: 220px;
     --sidebar-width-collapsed: 50px;
+
+    // overlays
+    --overlay-color: rgba(0 0 0 / 60%);
+
+    // z - index
+    --modal-z-index: 1000;
+    --overlay-z-index: 100;
 }

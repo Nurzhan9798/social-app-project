@@ -21,3 +21,8 @@ export const DarkMode = Template.bind({});
 DarkMode.args = {
 };
 DarkMode.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const OrangeMode = Template.bind({});
+OrangeMode.args = {
+};
+OrangeMode.decorators = [ThemeDecorator(Theme.ORANGE)];

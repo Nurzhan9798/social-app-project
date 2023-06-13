@@ -38,15 +38,18 @@ module.exports = {
     }],
     'max-len': ["error", 100, {
       "ignoreComments": true
-    }]
+    }],
+    "jsx-a11y/no-static-element-interactions": 'off',
+    "jsx-a11y/click-events-have-key-events": 'off'
   },
   globals: {
     __IS_DEV__: true
   },
   overrides: [{
-    files: ['**/src/**/*.test.{ts,tsx}'],
+    files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
     rules: {
-      "i18next/no-literal-string": "off"
+      "i18next/no-literal-string": "off",
+      "max-len": "off"
     }
   }]
 };
