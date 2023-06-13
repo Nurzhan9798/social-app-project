@@ -1,10 +1,12 @@
 .Sidebar {
     background-color: var(--light-bg-color);
     width: var(--sidebar-width);
-    height: calc(100vh - var(--navbar-height));
+    height: calc(100vh - var(--navbar-height) - 32px);
+    margin-left: 32px;
     transition: all 0.3s;
     position: relative;
     border-radius: 32px;
+    padding: 20px 0;
 }
 
 .switchers {
@@ -20,6 +22,40 @@
     margin-left: 10px;
 }
 
+.collapseBtn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(50%, -50%);
+    border-radius: 50%;
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.icon {
+    fill: var(--text-color);
+}
+
+.link {
+    margin-left: 16px;
+}
+
+.item {
+    padding-left: 16px;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        .icon {
+            fill: var(--accent-color);
+        }
+    }
+}
+
 .collapsed {
     width: var(--sidebar-width-collapsed);
 
@@ -31,12 +67,9 @@
     .langSwitcher {
         margin-left: 0;
     }
-}
 
-.collapseBtn {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translate(50%, -50%);
-    border-radius: 50%;
+    .link {
+        width: 0;
+        opacity: 0;
+    }
 }

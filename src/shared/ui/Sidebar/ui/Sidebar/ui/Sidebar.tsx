@@ -1,8 +1,13 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { LangSwitcher } from 'shared/ui/LangSwitcher';
+import { AppLink } from 'shared/ui/AppLink';
+import { useTranslation } from 'react-i18next';
+import { RoutePath } from 'shared/config/routre/routeConfig';
+import HomeIcon from '../../../../../assets/icons/home.svg';
+import AboutIcon from '../../../../../assets/icons/about.svg';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -12,6 +17,8 @@ interface SidebarProps {
 export function Sidebar(props: SidebarProps) {
     const { className } = props;
     const [collapsed, setCollapsed] = useState(false);
+    const { t } = useTranslation();
+
     const onToggle = () => {
         setCollapsed((prev) => !prev);
     };
@@ -27,6 +34,18 @@ export function Sidebar(props: SidebarProps) {
                 )
             }
         >
+            <div className={classNames(cls.items, {}, [])}>
+                <AppLink className={cls.item} to={RoutePath.main}>
+                    <HomeIcon className={cls.icon} />
+                    <span className={cls.link}>
+                        {t('Main')}
+                    </span>
+                </AppLink>
+                <AppLink className={cls.item} to={RoutePath.about}>
+                    <AboutIcon className={cls.icon} />
+                    <span className={cls.link}>{t('About')}</span>
+                </AppLink>
+            </div>
             <Button
                 data-testid="sidebar-toggle"
                 onClick={onToggle}
