@@ -1,4 +1,3 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useDispatch, useSelector } from 'react-redux';
 import { counterAction } from 'entity/Counter/model/slices/counterSlice';
 import { getCounterValue } from 'entity/Counter/model/selectors/getCounterValue/getCounterValue';
