@@ -1,5 +1,7 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import React, { ReactNode, useRef, useState } from 'react';
+import React, {
+    ReactNode, useCallback, useRef, useState,
+} from 'react';
 import { Portal } from 'shared/ui/Portal';
 import cls from './Modal.module.scss';
 
@@ -21,7 +23,7 @@ export const Modal = (props: ModalProps) => {
     const [isClosing, setIsClosing] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
-    const close = () => {
+    const close = useCallback(() => {
         if (onClose) {
             setIsClosing(true);
             timerRef.current = setTimeout(() => {
@@ -29,7 +31,7 @@ export const Modal = (props: ModalProps) => {
                 setIsClosing(false);
             }, ANIMATION_DELAY);
         }
-    };
+    }, [onClose]);
 
     const mods: Mods = {
         [cls.opened]: isOpen,
