@@ -8,5 +8,9 @@
   "ABOUT PAGE": "Біз жайлы",
   "Not found page": "Бет табылмады",
   "Something went wrong": "Сайтта қателіктер пайда болды",
-  "Login": "Кіру"
+  "Login": "Кіру",
+  "Username": "Пайдаланушы аты",
+  "username": "пайдаланушы аты",
+  "Password": "Құпия сөз",
+  "password": "құпия сөз"
 }

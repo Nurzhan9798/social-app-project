@@ -10,7 +10,7 @@ import { DeepPartial } from '@reduxjs/toolkit';
 interface RenderComponentProps {
     initialState?: DeepPartial<StateScheme>;
 }
-export function renderComponent(component: ReactNode, options?: RenderComponentProps) {
+export function renderComponent(component: ReactNode, options: RenderComponentProps = {}) {
     const { initialState } = options;
     return render(
         <StoreProvider initialState={initialState}>

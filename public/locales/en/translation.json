@@ -8,5 +8,9 @@
   "ABOUT PAGE": "ABOUT PAGE",
   "Not found page": "Not found page",
   "Something went wrong": "Something went wrong",
-  "Login": "Login"
+  "Login": "Login",
+  "Username": "Username",
+  "username": "username",
+  "Password": "Password",
+  "password": "password"
 }

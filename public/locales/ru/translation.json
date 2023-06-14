@@ -8,5 +8,9 @@
   "ABOUT PAGE": "О нас",
   "Not found page": "Страгица не найдено",
   "Something went wrong": "Что-то пошло не так",
-  "Login": "Войти"
+  "Login": "Войти",
+  "Username": "Имя пользователя",
+  "username": "имя пользователя",
+  "Password": "Пароль",
+  "password": "пароль"
 }
