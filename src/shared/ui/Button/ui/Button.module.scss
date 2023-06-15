@@ -32,3 +32,12 @@
     outline: none;
     border-radius: 34px;
 }
+
+.disabled {
+    opacity: 0.5;
+    cursor: auto;
+
+    &:hover {
+        color: var(--text-color);
+    }
+}

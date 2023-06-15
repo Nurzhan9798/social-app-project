@@ -7,5 +7,12 @@
     { "id": 2, "body": "some comment", "postId": 1 },
     { "id": 3, "body": "some comment", "postId": 1 }
   ],
-  "profile": { "name": "typicode" }
+  "profile": { "name": "typicode" },
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "123"
+    }
+  ]
 }

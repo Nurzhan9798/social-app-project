@@ -12,5 +12,8 @@
   "Username": "Пайдаланушы аты",
   "username": "пайдаланушы аты",
   "Password": "Құпия сөз",
-  "password": "құпия сөз"
+  "password": "құпия сөз",
+  "Authorization form": "Форма авторизации",
+  "You entered an incorrect username or password": "Сіз пайдаланушы атын немесе құпия сөзді қате енгіздіңіз",
+  "Logout": "Logout"
 }

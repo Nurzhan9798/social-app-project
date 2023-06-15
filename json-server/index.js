@@ -24,6 +24,12 @@ server.post('/login', (req, res) => {
         const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
         const { users = [] } = db;
 
+        const userExists = users.find(
+            (user) => user.username === username
+        )
+
+        if (!userExists) return res.status(403).json({ message: 'User not found' });
+
         const userFromBd = users.find(
             (user) => user.username === username && user.password === password,
         );
@@ -32,7 +38,7 @@ server.post('/login', (req, res) => {
             return res.json(userFromBd);
         }
 
-        return res.status(403).json({ message: 'User not found' });
+        return res.status(403).json({ message: 'Incorrect password. Try again.' });
     } catch (e) {
         console.log(e);
         return res.status(500).json({ message: e.message });

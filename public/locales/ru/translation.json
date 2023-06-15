@@ -12,5 +12,8 @@
   "Username": "Имя пользователя",
   "username": "имя пользователя",
   "Password": "Пароль",
-  "password": "пароль"
+  "password": "пароль",
+  "Authorization form": "Форма авторизации",
+  "You entered an incorrect username or password": "Вы ввели неверный логин или пароль",
+  "Logout": "Logout"
 }
