@@ -6,6 +6,7 @@ import { Text, TextTheme } from 'shared/ui/Text';
 import { useDispatch, useSelector } from 'react-redux';
 import { useCallback, useEffect } from 'react';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginFormActions, loginFormReducer } from '../../model/slices/loginFormSlice';
@@ -13,6 +14,7 @@ import cls from './LoginForm.module.scss';
 
 interface LoginFormProps {
     className?: string;
+    onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
@@ -20,7 +22,7 @@ const initialReducers: ReducersList = {
 };
 
 const LoginForm = (props: LoginFormProps) => {
-    const { className } = props;
+    const { className, onSuccess } = props;
     const { t } = useTranslation();
 
     const {
@@ -29,7 +31,7 @@ const LoginForm = (props: LoginFormProps) => {
         loading,
         error,
     } = useSelector(getLoginState);
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const onChangeUsername = useCallback((value: string) => {
         dispatch(loginFormActions.setUsername(value));
@@ -39,9 +41,12 @@ const LoginForm = (props: LoginFormProps) => {
         dispatch(loginFormActions.setPassword(value));
     }, [dispatch]);
 
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUsername({ username, password }));
-    }, [dispatch, password, username]);
+    const onLoginClick = useCallback(async () => {
+        const result = await dispatch(loginByUsername({ username, password }));
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess();
+        }
+    }, [dispatch, onSuccess, password, username]);
 
     const onKeyDown = useCallback((e: KeyboardEvent) => {
         if (e.key === 'Enter') {

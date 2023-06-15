@@ -1,13 +1,14 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
 import cls from './LangSwitcher.module.scss';
 
 interface LangSwitcherProps {
     className?: string;
 }
 
-export function LangSwitcher(props: LangSwitcherProps) {
+export const LangSwitcher = memo((props: LangSwitcherProps) => {
     const { className } = props;
     const { t, i18n } = useTranslation();
 
@@ -37,4 +38,4 @@ export function LangSwitcher(props: LangSwitcherProps) {
             </Button>
         </div>
     );
-}
+});

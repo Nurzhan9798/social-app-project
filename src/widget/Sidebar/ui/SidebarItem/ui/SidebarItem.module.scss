@@ -1,0 +1,27 @@
+.icon {
+    fill: var(--text-color);
+    height: 20px;
+    width: 20px;
+}
+
+.link {
+    margin-left: 16px;
+}
+
+.item {
+    padding-left: 16px;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        .icon {
+            fill: var(--accent-color);
+        }
+    }
+}
+
+.collapsed {
+    .link {
+        display: none;
+    }
+}

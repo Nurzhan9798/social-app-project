@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink } from 'shared/ui/AppLink';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button';
-import { Modal } from 'shared/ui/Modal';
 import { LoginModal } from 'feature/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData } from 'entity/User/model/selectors/getUserAuthData/getUserAuthData';
@@ -14,7 +12,7 @@ interface NavbarProps {
     classnames?: string;
 }
 
-export function Navbar(props: NavbarProps) {
+export const Navbar = memo((props: NavbarProps) => {
     const { classnames } = props;
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
     const { t } = useTranslation();
@@ -50,4 +48,4 @@ export function Navbar(props: NavbarProps) {
             </div>
         </div>
     );
-}
+});

@@ -1,6 +1,6 @@
 import { renderComponent } from 'shared/lib/test/renderComponent/renderComponent';
 import { screen } from '@testing-library/react';
-import { Sidebar } from 'shared/ui/Sidebar';
+import { Sidebar } from 'widget/Sidebar';
 import { userEvent } from '@storybook/testing-library';
 import { Counter } from './Counter';
 

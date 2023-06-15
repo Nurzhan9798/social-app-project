@@ -1,6 +1,7 @@
 import './Loader.scss';
+import { memo } from 'react';
 
-export const Loader = () => (
+export const Loader = memo(() => (
     <div className="lds-spinner">
         <div />
         <div />
@@ -15,4 +16,4 @@ export const Loader = () => (
         <div />
         <div />
     </div>
-);
+));
