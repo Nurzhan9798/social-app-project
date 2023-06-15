@@ -46,7 +46,7 @@ export function Navbar(props: NavbarProps) {
         <div className={classNames(cls.Navbar, {}, [classnames])}>
             <div className={classNames(cls.links, {}, [])}>
                 <Button onClick={onOpenAuthModal}>{t('Login')}</Button>
-                <LoginModal isOpen={isAuthModalOpen} onClose={onCloseAuthModal} />
+                {isAuthModalOpen && <LoginModal isOpen={isAuthModalOpen} onClose={onCloseAuthModal} />}
             </div>
         </div>
     );
