@@ -8,14 +8,14 @@ import { StoreProvider } from 'app/providers/StoreProvider';
 import 'app/style/index.scss';
 
 render(
-    <StoreProvider>
-        <ErrorBoundary>
-            <ThemeProvider>
-                <BrowserRouter>
+    <BrowserRouter>
+        <StoreProvider>
+            <ErrorBoundary>
+                <ThemeProvider>
                     <App />
-                </BrowserRouter>
-            </ThemeProvider>
-        </ErrorBoundary>
-    </StoreProvider>,
+                </ThemeProvider>
+            </ErrorBoundary>
+        </StoreProvider>
+    </BrowserRouter>,
     document.getElementById('root'),
 );
