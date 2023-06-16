@@ -15,19 +15,13 @@ export default {
 const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
 
 export const LightMode = Template.bind({});
-LightMode.args = {
-    children: 'Text',
-};
+LightMode.args = {};
 LightMode.decorators = [StoreDecorator({})];
 
 export const DarkMode = Template.bind({});
-DarkMode.args = {
-    children: 'Text',
-};
+DarkMode.args = {};
 DarkMode.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
 
 export const OrangeMode = Template.bind({});
-OrangeMode.args = {
-    children: 'Text',
-};
+OrangeMode.args = {};
 OrangeMode.decorators = [ThemeDecorator(Theme.ORANGE), StoreDecorator({})];

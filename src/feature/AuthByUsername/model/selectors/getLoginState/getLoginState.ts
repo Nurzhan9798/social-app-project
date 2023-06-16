@@ -4,7 +4,7 @@ import { LoginFormScheme } from 'feature/AuthByUsername';
 const defaultLoginForm: LoginFormScheme = {
     username: '',
     password: '',
-    loading: false,
-    error: null,
+    isLoading: false,
+    error: undefined,
 };
 export const getLoginState = (state: StateScheme) => state?.loginForm || defaultLoginForm;

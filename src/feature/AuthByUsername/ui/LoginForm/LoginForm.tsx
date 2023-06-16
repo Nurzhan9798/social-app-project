@@ -28,7 +28,7 @@ const LoginForm = (props: LoginFormProps) => {
     const {
         username,
         password,
-        loading,
+        isLoading,
         error,
     } = useSelector(getLoginState);
     const dispatch = useAppDispatch();
@@ -73,7 +73,7 @@ const LoginForm = (props: LoginFormProps) => {
                     placeholder={t('username')}
                     value={username}
                     onChange={onChangeUsername}
-                    disabled={loading}
+                    disabled={isLoading}
                 />
                 <Input
                     type="password"
@@ -81,12 +81,12 @@ const LoginForm = (props: LoginFormProps) => {
                     placeholder={t('password')}
                     value={password}
                     onChange={onChangePassword}
-                    disabled={loading}
+                    disabled={isLoading}
                 />
                 <Button
                     className={cls.loginBtn}
                     onClick={onLoginClick}
-                    disabled={loading}
+                    disabled={isLoading}
                 >
                     {t('Login')}
                 </Button>

@@ -16,5 +16,16 @@
   "password": "password",
   "Authorization form": "Authorization form",
   "You entered an incorrect username or password": "You entered an incorrect username or password",
-  "Logout": "Logout"
+  "Logout": "Logout",
+  "First name": "First name",
+  "Last name": "Last name",
+  "Age": "Age",
+  "City": "City",
+  "Link to avatar": "Link to avatar",
+  "Currency": "Currency",
+  "Country": "Country",
+  "Edit": "Edit",
+  "Cancel": "Cancel",
+  "Save": "Save",
+  "Profile card": "Profile card"
 }

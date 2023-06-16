@@ -1,3 +1,5 @@
+export { ProfileCard } from './ui/ProfileCard/ProfileCard';
+
 export {
     Profile,
     ProfileScheme,

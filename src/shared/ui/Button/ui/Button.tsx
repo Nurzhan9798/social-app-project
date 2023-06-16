@@ -10,17 +10,25 @@ export enum ButtonTheme {
     FILLED = 'filled'
 }
 
+export enum ButtonColor {
+    PRIMARY = 'primary',
+    RED = 'red',
+    GREEN = 'green'
+}
+
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     children: ReactNode;
     className?: string;
     theme?: ButtonTheme;
     disabled?: boolean;
+    color?: ButtonColor;
 }
 
 export const Button = memo((props: ButtonProps) => {
     const {
         className,
         theme = ButtonTheme.FILLED,
+        color = ButtonColor.PRIMARY,
         disabled,
         children,
         ...otherProps
@@ -29,7 +37,7 @@ export const Button = memo((props: ButtonProps) => {
     return (
         <button
             type="button"
-            className={classNames(cls.Button, { [cls.disabled]: disabled }, [className, cls[theme]])}
+            className={classNames(cls.Button, { [cls.disabled]: disabled }, [className, cls[theme], cls[color]])}
             disabled={disabled}
             {...otherProps}
         >

@@ -1,4 +1,6 @@
-import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
+import {
+    CombinedState, configureStore, Reducer, ReducersMapObject,
+} from '@reduxjs/toolkit';
 import { counterReducer } from 'entity/Counter';
 import { userReducer } from 'entity/User';
 import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
@@ -17,18 +19,20 @@ export function createReduxStore(
         counter: counterReducer,
         user: userReducer,
     };
+
+    const extraArg = {
+        api: $api,
+        navigate,
+    };
     const reducerManager = createReducerManager(rootReducers);
     const store = configureStore({
-        reducer: reducerManager.reduce,
+        reducer: reducerManager.reduce as Reducer<CombinedState<StateScheme>>,
         devTools: __IS_DEV__,
         preloadedState: initialState,
         middleware: (getDefaultMiddleware) => getDefaultMiddleware(
             {
                 thunk: {
-                    extraArgument: {
-                        api: $api,
-                        navigate,
-                    },
+                    extraArgument: extraArg,
                 },
             },
         ),

@@ -14,18 +14,12 @@ export default {
 const Template: ComponentStory<typeof NotFoundPage> = () => <NotFoundPage />;
 
 export const LightMode = Template.bind({});
-LightMode.args = {
-    children: 'Text',
-};
+LightMode.args = {};
 
 export const DarkMode = Template.bind({});
-DarkMode.args = {
-    children: 'Text',
-};
+DarkMode.args = {};
 DarkMode.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const OrangeMode = Template.bind({});
-OrangeMode.args = {
-    children: 'Text',
-};
+OrangeMode.args = {};
 OrangeMode.decorators = [ThemeDecorator(Theme.ORANGE)];

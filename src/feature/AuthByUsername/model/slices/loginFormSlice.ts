@@ -5,7 +5,7 @@ import { loginByUsername } from 'feature/AuthByUsername/model/services/loginByUs
 const initialState: LoginFormScheme = {
     username: '',
     password: '',
-    loading: false,
+    isLoading: false,
 };
 export const loginFormSlice = createSlice({
     name: 'loginForm',
@@ -23,13 +23,13 @@ export const loginFormSlice = createSlice({
         builder
             .addCase(loginByUsername.pending, (state) => {
                 state.error = undefined;
-                state.loading = true;
+                state.isLoading = true;
             })
             .addCase(loginByUsername.fulfilled, (state, action) => {
-                state.loading = false;
+                state.isLoading = false;
             })
             .addCase(loginByUsername.rejected, (state, action) => {
-                state.loading = false;
+                state.isLoading = false;
                 state.error = action.payload;
             });
     },

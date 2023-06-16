@@ -16,5 +16,16 @@
   "password": "пароль",
   "Authorization form": "Форма авторизации",
   "You entered an incorrect username or password": "Вы ввели неверный логин или пароль",
-  "Logout": "Выйти"
+  "Logout": "Выйти",
+  "First name": "Имя",
+  "Last name": "Фамилия",
+  "Age": "Возрасть",
+  "City": "Город",
+  "Link to avatar": "Ссылка на аватар",
+  "Currency": "Валюта",
+  "Country": "Страна",
+  "Edit": "Edit",
+  "Cancel": "Cancel",
+  "Save": "Save",
+  "Profile card": "Profile card"
 }

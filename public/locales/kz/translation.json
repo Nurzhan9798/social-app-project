@@ -16,5 +16,16 @@
   "password": "құпия сөз",
   "Authorization form": "Форма авторизации",
   "You entered an incorrect username or password": "Сіз пайдаланушы атын немесе құпия сөзді қате енгіздіңіз",
-  "Logout": "Шығу"
+  "Logout": "Шығу",
+  "First name": "Аты",
+  "Last name": "Жөні",
+  "Age": "Жас",
+  "City": "Қала",
+  "Link to avatar": "Аватарға сілтеме",
+  "Currency": "Валюта",
+  "Country": "Ел",
+  "Edit": "Edit",
+  "Cancel": "Cancel",
+  "Save": "Save",
+  "Profile card": "Profile card"
 }

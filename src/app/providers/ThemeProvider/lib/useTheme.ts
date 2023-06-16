@@ -20,7 +20,7 @@ export function useTheme() {
             newTheme = Theme.LIGHT;
         }
         document.body.className = newTheme;
-        setTheme(newTheme);
+        setTheme?.(newTheme);
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
     };
 
