@@ -11,4 +11,4 @@ import { StateScheme } from 'app/providers/StoreProvider';
 //     avatar: '',
 // };
 
-export const getProfileData = (state: StateScheme) => state?.profile?.data;
+export const getProfileForm = (state: StateScheme) => state?.profile?.form;

@@ -1,11 +1,27 @@
 {
   "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
   ],
   "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 },
-    { "id": 2, "body": "some comment", "postId": 1 },
-    { "id": 3, "body": "some comment", "postId": 1 }
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "id": 3,
+      "body": "some comment",
+      "postId": 1
+    }
   ],
   "users": [
     {
@@ -15,13 +31,14 @@
     }
   ],
   "profile": {
-    "first": "Nurzhan",
+    "firstname ": "Nurzhan",
     "lastname": "Bakytov",
     "age": 22,
-    "currency": "KZT",
-    "country": "Kazahstan",
+    "currency": "USD",
+    "country": "Ukraine",
     "city": "Almaty",
     "username": "admin",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    "avatar": "https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg?w=2000",
+    "firstname": "Nurzhan"
   }
 }

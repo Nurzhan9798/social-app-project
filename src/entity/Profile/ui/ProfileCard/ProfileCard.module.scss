@@ -7,9 +7,9 @@
     gap: 16px;
 }
 
-.header {
+.avatar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .content {
@@ -28,7 +28,8 @@
     }
 }
 
-.loading {
+.loading,
+.error {
     display: flex;
     justify-content: center;
     align-items: center;

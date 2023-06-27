@@ -24,8 +24,10 @@
   "Link to avatar": "Аватарға сілтеме",
   "Currency": "Валюта",
   "Country": "Ел",
-  "Edit": "Edit",
-  "Cancel": "Cancel",
-  "Save": "Save",
-  "Profile card": "Profile card"
+  "Edit": "Өзгерту",
+  "Cancel": "Бас тарту",
+  "Save": "Сақтау",
+  "Profile card": "Профиль",
+  "Try refreshing the page": "Бетті жаңартып көріңіз",
+  "An error occurred while loading the profile": "Профильді жүктеу кезінде қате орын алды"
 }

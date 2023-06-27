@@ -1,42 +1,51 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Input } from 'shared/ui/Input';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonTheme } from 'shared/ui/Button';
-import { ButtonColor } from 'shared/ui/Button/ui/Button';
-import { Text, TextTheme } from 'shared/ui/Text';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch';
-import { useSelector } from 'react-redux';
-import { getProfileData } from 'entity/Profile/model/selectors/getProfileData/getProfileData';
-import { getProfileIsLoading } from 'entity/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { getProfileError } from 'entity/Profile/model/selectors/getProfileError/getProfileError';
-import { getProfileReadonly } from 'entity/Profile/model/selectors/getProfileReadonly/getProfileReadonly';
+import { Text, TextTheme, TextAlign } from 'shared/ui/Text';
 import { Loader } from 'shared/ui/Loader';
-import { profileAction, profileReducer } from 'entity/Profile';
+import { Profile } from 'entity/Profile';
+import React from 'react';
+import { Avatar } from 'shared/ui/Avatar';
+import { CountrySelect, Country } from 'entity/CountrySelect';
+import { CurrencySelect, Currency } from 'entity/CurrencySelect';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
     className?: string;
+    isLoading: boolean;
+    data?: Profile;
+    error?: string;
+    readonly?: boolean;
+    onFirstnameChange?: (value: string) => void;
+    onLastnameChange?: (value: string) => void;
+    onAgeChange?: (value: string) => void;
+    onCityChange?: (value: string) => void;
+    onUsernameChange?: (value: string) => void;
+    onAvatarChange?: (value: string) => void;
+    onCurrencyChange?: (value: Currency) => void;
+    onCountryChange?: (value: Country) => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
-    const { className } = props;
+    const {
+        className,
+        isLoading,
+        data,
+        error,
+        readonly,
+        onFirstnameChange,
+        onLastnameChange,
+        onAgeChange,
+        onCityChange,
+        onUsernameChange,
+        onAvatarChange,
+        onCurrencyChange,
+        onCountryChange,
+    } = props;
+
     const { t } = useTranslation();
-    const dispatch = useAppDispatch();
-    const profileData = useSelector(getProfileData);
 
-    const profileIsLoading = useSelector(getProfileIsLoading);
-    const profileError = useSelector(getProfileError);
-    const profileReadonly = useSelector(getProfileReadonly);
-
-    const onEditBtnClick = () => {
-        dispatch(profileAction.setReadonly(false));
-    };
-
-    const onCancelBtnClick = () => {
-        dispatch(profileAction.setReadonly(true));
-    };
-
-    if (profileIsLoading) {
+    if (isLoading) {
         return (
             <div className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
                 <Loader />
@@ -44,95 +53,84 @@ export const ProfileCard = (props: ProfileCardProps) => {
         );
     }
 
+    if (error) {
+        return (
+            <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+                <Text
+                    theme={TextTheme.ERROR}
+                    title={t('An error occurred while loading the profile')}
+                    text={t('Try refreshing the page')}
+                    align={TextAlign.CENTER}
+                />
+            </div>
+        );
+    }
     return (
         <div className={classNames(cls.ProfileCard, {}, [className])}>
-            <Text title={t('Profile card')} />
-            {profileReadonly ? 'readonly' : 'not readonly'}
-            <div className={cls.header}>
-                {profileReadonly
-                    && (
-                        <Button
-                            theme={ButtonTheme.OUTLINE}
-                            onClick={onEditBtnClick}
-                        >
-                            {t('Edit')}
-                        </Button>
-                    )}
-                {!profileReadonly
-                    && (
-                        <>
-                            <Button
-                                onClick={onCancelBtnClick}
-                                theme={ButtonTheme.OUTLINE}
-                                color={ButtonColor.RED}
-                            >
-                                {t('Cancel')}
-                            </Button>
-                            {/* AVATAR */}
-                            <Button
-                                theme={ButtonTheme.OUTLINE}
-                                color={ButtonColor.GREEN}
-                            >
-                                {t('Save')}
-                            </Button>
-                        </>
-                    )}
-            </div>
+            {data?.avatar && (
+                <div className={cls.avatar}>
+                    <Avatar size={100} src={data.avatar} alt="" />
+                </div>
+            )}
             <div className={cls.content}>
-                {profileError && <Text theme={TextTheme.ERROR} text={profileError} />}
                 <div className={cls.contentDiv}>
                     <Input
-                        disabled={profileReadonly}
+                        disabled={readonly}
                         label={t('First name')}
                         placeholder={t('First name')}
-                        value={profileData?.first}
+                        value={data?.firstname}
+                        onChange={onFirstnameChange}
                     />
                     <Input
-                        disabled={profileReadonly}
+                        disabled={readonly}
                         label={t('Last name')}
                         placeholder={t('Last name')}
-                        value={profileData?.lastname}
+                        value={data?.lastname}
+                        onChange={onLastnameChange}
                     />
                     <Input
-                        disabled={profileReadonly}
+                        disabled={readonly}
                         label={t('Age')}
                         placeholder={t('Age')}
-                        value={profileData?.age}
+                        value={data?.age}
+                        onChange={onAgeChange}
                     />
                     <Input
-                        disabled={profileReadonly}
+                        disabled={readonly}
                         label={t('City')}
                         placeholder={t('City')}
-                        value={profileData?.city}
+                        value={data?.city}
+                        onChange={onCityChange}
                     />
 
                 </div>
                 <div className={cls.contentDiv}>
                     <Input
-                        disabled={profileReadonly}
+                        disabled={readonly}
                         label={t('Username')}
                         placeholder={t('Username')}
-                        value={profileData?.username}
+                        value={data?.username}
+                        onChange={onUsernameChange}
                     />
                     <Input
-                        disabled={profileReadonly}
+                        disabled={readonly}
                         label={t('Link to avatar')}
                         placeholder={t('Link to avatar')}
-                        value={profileData?.avatar}
+                        value={data?.avatar}
+                        onChange={onAvatarChange}
                     />
-                    <Input
-                        disabled={profileReadonly}
-                        label={t('Currency')}
-                        placeholder={t('Currency')}
-                        value={profileData?.currency}
+                    <CountrySelect
+                        readonly={readonly}
+                        value={data?.country}
+                        onChange={onCountryChange}
                     />
-                    <Input
-                        disabled={profileReadonly}
-                        label={t('Country')}
-                        placeholder={t('Country')}
-                        value={profileData?.country}
+                    <CurrencySelect
+                        readonly={readonly}
+                        value={data?.currency}
+                        onChange={onCurrencyChange}
                     />
                 </div>
+
             </div>
         </div>
     );

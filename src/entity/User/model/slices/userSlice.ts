@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { User, UserScheme } from 'entity/User';
 import { LOCAL_STORAGE_USER_KEY } from 'shared/const/localstorage';
+import { navigate } from '@storybook/addon-links';
 
 const initialState:UserScheme = {
 };

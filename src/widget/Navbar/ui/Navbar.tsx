@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button';
 import { LoginModal } from 'feature/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData } from 'entity/User/model/selectors/getUserAuthData/getUserAuthData';
-import { userAction } from 'entity/User';
+import { getUserAuthData, userAction } from 'entity/User';
+import { useNavigate } from 'react-router-dom';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -18,6 +18,7 @@ export const Navbar = memo((props: NavbarProps) => {
     const { t } = useTranslation();
     const authData = useSelector(getUserAuthData);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const onCloseAuthModal = () => {
         setIsAuthModalOpen(false);
     };
@@ -26,15 +27,16 @@ export const Navbar = memo((props: NavbarProps) => {
         setIsAuthModalOpen(true);
     };
 
-    const logut = () => {
+    const logout = () => {
         dispatch(userAction.logout());
+        navigate('/');
     };
 
     if (authData) {
         return (
             <div className={classNames(cls.Navbar, {}, [classnames])}>
                 <div className={classNames(cls.links, {}, [])}>
-                    <Button onClick={logut}>{t('Logout')}</Button>
+                    <Button onClick={logout}>{t('Logout')}</Button>
                 </div>
             </div>
         );

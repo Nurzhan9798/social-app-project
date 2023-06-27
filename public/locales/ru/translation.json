@@ -24,8 +24,10 @@
   "Link to avatar": "Ссылка на аватар",
   "Currency": "Валюта",
   "Country": "Страна",
-  "Edit": "Edit",
-  "Cancel": "Cancel",
-  "Save": "Save",
-  "Profile card": "Profile card"
+  "Edit": "Изменить",
+  "Cancel": "Отмена",
+  "Save": "Сохранить",
+  "Profile card": "Профиль",
+  "Try refreshing the page": "Попробуйте обновить страницу",
+  "An error occurred while loading the profile": "Произошла ошибка при загрузке профиля"
 }
