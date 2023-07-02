@@ -2,6 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import React from 'react';
 import { Select } from 'shared/ui/Select';
+import { SelectTheme } from 'shared/ui/Select/ui/Select';
 import { Currency } from '../model/types/currency';
 
 interface CurrencySelectProps {
@@ -38,6 +39,7 @@ export const CurrencySelect = (props: CurrencySelectProps) => {
             value={value}
             onChange={onChangeHandler}
             readonly={readonly}
+            theme={SelectTheme.NORMAL}
         />
     );
 };

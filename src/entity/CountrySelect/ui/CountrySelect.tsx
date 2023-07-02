@@ -2,6 +2,7 @@ import { Select } from 'shared/ui/Select';
 import React, { useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
+import { SelectTheme } from 'shared/ui/Select/ui/Select';
 import { Country } from '../model/types/country';
 
 interface CountrySelectProps {
@@ -41,6 +42,7 @@ export const CountrySelect = (props: CountrySelectProps) => {
             readonly={readonly}
             value={value}
             onChange={onChangeHandler}
+            theme={SelectTheme.NORMAL}
         />
     );
 };
