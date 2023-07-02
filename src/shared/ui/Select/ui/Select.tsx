@@ -52,7 +52,7 @@ export const Select = (props: SelectProps) => {
 
     return (
         <div className={classNames(cls.SelectWrapper, {}, [className])}>
-            {label && <span>{`${label}:`}</span>}
+            {label && <span className={cls.label}>{`${label}:`}</span>}
             <select
                 className={classNames(cls.select, mods, [cls[theme]])}
                 onChange={onChangeHandler}

@@ -7,13 +7,13 @@
 html,
 body {
     height: 100vh;
-    color: var(--text-color);
     font: var(--font-m);
 }
 
 .app {
     min-height: 100vh;
     background: var(--bg-color);
+    color: var(--text-color);
 }
 
 .content-page {

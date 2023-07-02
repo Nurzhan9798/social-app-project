@@ -3,7 +3,9 @@ import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from './types/config';
 
-export function buildPlugins({ paths, isDev, api }: BuildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlugins({
+    paths, isDev, api, project,
+}: BuildOptions): webpack.WebpackPluginInstance[] {
     return [
         new HtmlWebpackPlugin({ template: paths.html }),
         new webpack.ProgressPlugin(),
@@ -14,6 +16,7 @@ export function buildPlugins({ paths, isDev, api }: BuildOptions): webpack.Webpa
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(api),
+            __PROJECT__: JSON.stringify(project),
         }),
     ];
 }

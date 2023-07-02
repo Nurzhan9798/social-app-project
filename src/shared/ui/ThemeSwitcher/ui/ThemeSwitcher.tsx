@@ -6,6 +6,12 @@ import { memo } from 'react';
 export const ThemeSwitcher = memo(() => {
     const { toggleTheme } = useTheme();
     return (
-        <Icon Svg={ThemeSwitcherIcon} clickable onClick={toggleTheme} />
+        <Icon
+            Svg={ThemeSwitcherIcon}
+            clickable
+            onClick={toggleTheme}
+            width={20}
+            height={20}
+        />
     );
 });

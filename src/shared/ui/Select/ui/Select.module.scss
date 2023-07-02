@@ -19,11 +19,19 @@
     border: none;
     color: var(--icon-color);
     cursor: pointer;
+
+    &:hover {
+        color: var(--accent-color);
+    }
 }
 
 .disabled {
     border: 1px solid var(--hint-color);
     color: var(--hint-color);
+}
+
+.label {
+    color: var(--text-color);
 }
 
 select {

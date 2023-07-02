@@ -1,5 +1,11 @@
 .Icon {
+    fill: var(--icon-color);
     color: var(--icon-color);
+
+    &:hover {
+        fill: var(--accent-color);
+        color: var(--accent-color);
+    }
 }
 
 .button {

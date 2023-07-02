@@ -18,17 +18,14 @@ export default {
 const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
 export const LightMode = Template.bind({});
-LightMode.args = {
-};
+LightMode.args = {};
 
 export const DarkMode = Template.bind({});
-DarkMode.args = {
-};
+DarkMode.args = {};
 DarkMode.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const OrangeMode = Template.bind({});
-OrangeMode.args = {
-};
+OrangeMode.args = {};
 OrangeMode.decorators = [ThemeDecorator(Theme.ORANGE)];
 
 export const LightModeDisabled = Template.bind({});

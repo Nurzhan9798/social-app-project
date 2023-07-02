@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Button, ButtonTheme } from './Button';
+import { Button, ButtonColor, ButtonTheme } from './Button';
 
 export default {
     title: 'shared/Button',
@@ -70,3 +70,46 @@ OutlineOrangeMode.args = {
     theme: ButtonTheme.OUTLINE,
 };
 OutlineOrangeMode.decorators = [ThemeDecorator(Theme.ORANGE)];
+
+export const FilledRed = Template.bind({});
+FilledRed.args = {
+    children: 'Text',
+    color: ButtonColor.RED,
+};
+
+export const FilledDarkModeRed = Template.bind({});
+FilledDarkModeRed.args = {
+    children: 'Text',
+    color: ButtonColor.RED,
+};
+FilledDarkModeRed.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const FilledOrangeModeRed = Template.bind({});
+FilledOrangeModeRed.args = {
+    children: 'Text',
+    color: ButtonColor.RED,
+};
+FilledOrangeModeRed.decorators = [ThemeDecorator(Theme.ORANGE)];
+
+export const OutlineRed = Template.bind({});
+OutlineRed.args = {
+    children: 'Text',
+    theme: ButtonTheme.OUTLINE,
+    color: ButtonColor.RED,
+};
+
+export const OutlineDarkModeRed = Template.bind({});
+OutlineDarkModeRed.args = {
+    children: 'Text',
+    theme: ButtonTheme.OUTLINE,
+    color: ButtonColor.RED,
+};
+OutlineDarkModeRed.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const OutlineOrangeModeRed = Template.bind({});
+OutlineOrangeModeRed.args = {
+    children: 'Text',
+    theme: ButtonTheme.OUTLINE,
+    color: ButtonColor.RED,
+};
+OutlineOrangeModeRed.decorators = [ThemeDecorator(Theme.ORANGE)];
