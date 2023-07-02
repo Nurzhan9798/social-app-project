@@ -6,8 +6,8 @@ import { Loader } from 'shared/ui/Loader';
 import { Profile } from 'entity/Profile';
 import React from 'react';
 import { Avatar } from 'shared/ui/Avatar';
-import { CountrySelect, Country } from 'entity/CountrySelect';
-import { CurrencySelect, Currency } from 'entity/CurrencySelect';
+import { CountrySelect, Country } from 'entity/Country';
+import { CurrencySelect, Currency } from 'entity/Currency';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {

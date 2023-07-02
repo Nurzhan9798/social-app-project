@@ -13,8 +13,8 @@ import {
 import React, { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { Currency } from 'entity/CurrencySelect';
-import { Country } from 'entity/CountrySelect';
+import { Currency } from 'entity/Currency';
+import { Country } from 'entity/Country';
 import {
     getProfileValidationErrors,
 } from 'entity/Profile/model/selectors/getProfileValidationErrors/getProfileValidationErrors';

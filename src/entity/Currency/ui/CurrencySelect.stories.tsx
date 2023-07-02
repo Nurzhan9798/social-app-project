@@ -4,7 +4,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { CurrencySelect } from './CurrencySelect';
 
 export default {
-    title: 'entities/CurrencySelect',
+    title: 'entities/Currency',
     component: CurrencySelect,
 } as ComponentMeta<typeof CurrencySelect>;
 

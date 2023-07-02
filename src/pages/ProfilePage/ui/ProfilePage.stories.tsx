@@ -3,8 +3,8 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { Profile } from 'entity/Profile';
-import { Country } from 'entity/CountrySelect';
-import { Currency } from 'entity/CurrencySelect';
+import { Country } from 'entity/Country';
+import { Currency } from 'entity/Currency';
 import ProfilePage from './ProfilePage';
 
 const profile: Profile = {

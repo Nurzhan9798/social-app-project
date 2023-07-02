@@ -1,5 +1,5 @@
-import { Country } from 'entity/CountrySelect/model/types/country';
-import { Currency } from 'entity/CurrencySelect/model/types/currency';
+import { Country } from 'entity/Country/model/types/country';
+import { Currency } from 'entity/Currency/model/types/currency';
 
 export enum ProfileValidationErrors {
     NO_DATA = 'NO_DATA',
