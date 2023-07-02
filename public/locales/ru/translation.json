@@ -1,7 +1,7 @@
 {
-  "kz": "казахский",
-  "en": "англиский",
-  "ru": "руский",
+  "kz": "ҚАЗ",
+  "en": "ENG",
+  "ru": "РУС",
   "Main": "Главная",
   "About": "О нас",
   "Profile": "Профиль",
@@ -29,5 +29,12 @@
   "Save": "Сохранить",
   "Profile card": "Профиль",
   "Try refreshing the page": "Попробуйте обновить страницу",
-  "An error occurred while loading the profile": "Произошла ошибка при загрузке профиля"
+  "An error occurred while loading the profile": "Произошла ошибка при загрузке профиля",
+  "Server error": "Server error",
+  "No data": "No data",
+  "Incorrect currency": "Incorrect currency",
+  "Incorrect country": "Incorrect country",
+  "Incorrect age": "Incorrect age",
+  "Incorrect firstname or lastname": "Incorrect firstname or lastname",
+  "Incorrect username": "Incorrect username"
 }

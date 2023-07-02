@@ -2,6 +2,10 @@ import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { ChangeEvent, useMemo } from 'react';
 import cls from './Select.module.scss';
 
+export enum SelectTheme {
+    NORMAL = 'normal',
+    CLEAR = 'clear',
+}
 export interface SelectOption {
     value: string;
     content: string;
@@ -13,7 +17,7 @@ interface SelectProps {
     value?: string;
     onChange?: (value: string) => void;
     readonly?: boolean;
-
+    theme?: SelectTheme;
 }
 
 export const Select = (props: SelectProps) => {
@@ -22,8 +26,9 @@ export const Select = (props: SelectProps) => {
         label,
         options,
         value,
-        onChange,
         readonly,
+        theme = SelectTheme.CLEAR,
+        onChange,
     } = props;
 
     const mods: Mods = {
@@ -49,7 +54,7 @@ export const Select = (props: SelectProps) => {
         <div className={classNames(cls.SelectWrapper, {}, [className])}>
             {label && <span>{`${label}:`}</span>}
             <select
-                className={classNames(cls.select, mods, [])}
+                className={classNames(cls.select, mods, [cls[theme]])}
                 onChange={onChangeHandler}
                 value={value}
                 disabled={readonly}

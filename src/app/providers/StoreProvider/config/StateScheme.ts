@@ -1,4 +1,3 @@
-import { CounterScheme } from 'entity/Counter';
 import { UserScheme } from 'entity/User';
 import { LoginFormScheme } from 'feature/AuthByUsername';
 import {
@@ -10,7 +9,6 @@ import { To } from 'react-router-dom';
 import { NavigateOptions } from 'react-router';
 
 export interface StateScheme {
-    counter: CounterScheme;
     user: UserScheme;
 
     // async reducers
@@ -37,7 +35,7 @@ export interface ThunkExtraArgs {
 }
 
 export interface ThunkConfig<T> {
-    rejectValue: string;
+    rejectValue: T;
     extra: ThunkExtraArgs;
     state: StateScheme;
 }

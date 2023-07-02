@@ -10,15 +10,24 @@
     padding: 8px 16px;
     border-radius: 48px;
     color: var(--text-color);
+    background-color: var(--dark-bg-color);
     flex-grow: 1;
 }
 
-.option {
-    color: blue;
-    background: green;
+.clear {
+    background: none;
+    border: none;
+    color: var(--icon-color);
+    cursor: pointer;
 }
 
 .disabled {
     border: 1px solid var(--hint-color);
     color: var(--hint-color);
+}
+
+select {
+    appearance: none;
+    text-indent: 1px;
+    text-overflow: "";
 }

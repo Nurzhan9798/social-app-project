@@ -9,6 +9,7 @@ const initialState: ProfileScheme = {
     data: undefined,
     form: undefined,
     error: undefined,
+    validationErrors: undefined,
 };
 
 export const profileSlice = createSlice({
@@ -43,7 +44,7 @@ export const profileSlice = createSlice({
             })
             .addCase(updateProfileData.pending, (state) => {
                 state.isLoading = true;
-                state.error = undefined;
+                state.validationErrors = undefined;
             })
             .addCase(updateProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
                 state.isLoading = false;
@@ -53,7 +54,7 @@ export const profileSlice = createSlice({
             })
             .addCase(updateProfileData.rejected, (state, action) => {
                 state.isLoading = false;
-                state.error = action.payload;
+                state.validationErrors = action.payload;
             });
     },
 });
