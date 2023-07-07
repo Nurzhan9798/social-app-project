@@ -21,6 +21,8 @@ import {
 import { Text, TextTheme } from 'shared/ui/Text';
 import { ProfileValidationErrors } from 'entity/Profile/model/types/Profile';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
+import { useInitialEffect } from 'shared/hooks/useInitialEffect';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import cls from './ProfilePage.module.scss';
 
@@ -35,6 +37,7 @@ interface ProfilePageProps {
 const ProfilePage = (props: ProfilePageProps) => {
     const { className } = props;
     const { t } = useTranslation();
+    const { id } = useParams<{id: string}>();
     const dispatch = useAppDispatch();
     const profileForm = useSelector(getProfileForm);
     const profileIsLoading = useSelector(getProfileIsLoading);
@@ -52,11 +55,10 @@ const ProfilePage = (props: ProfilePageProps) => {
         [ProfileValidationErrors.INCORRECT_USER_USERNAME]: t('Incorrect username'),
     };
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
-        }
-    }, [dispatch]);
+    useInitialEffect(() => {
+        dispatch(fetchProfileData(id));
+    });
+
     const onFirstnameChange = useCallback((value: string) => {
         dispatch(profileAction.updateProfile({ firstname: value }));
     }, [dispatch]);

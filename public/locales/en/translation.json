@@ -5,6 +5,7 @@
   "Main": "Main",
   "About": "About",
   "Profile": "Profile",
+  "Articles": "Articles",
   "MAIN PAGE": "MAIN PAGE",
   "ABOUT PAGE": "ABOUT PAGE",
   "Not found page": "Not found page",
@@ -36,5 +37,8 @@
   "Incorrect country": "Incorrect country",
   "Incorrect age": "Incorrect age",
   "Incorrect firstname or lastname": "Incorrect firstname or lastname",
-  "Incorrect username": "Incorrect username"
+  "Incorrect username": "Incorrect username",
+  "No comments": "No comments",
+  "Add new comment": "Add new comment",
+  "Send": "Send"
 }

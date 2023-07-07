@@ -15,6 +15,7 @@ const data = {
     city: 'Aktau',
     username: 'nurzhan',
     avatar: 'src',
+    id: '1',
 };
 describe('profileSlice.test', () => {
     test('test set readonly', () => {
