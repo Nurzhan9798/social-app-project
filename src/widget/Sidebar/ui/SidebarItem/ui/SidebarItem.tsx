@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entity/User';
 import { Icon } from 'shared/ui/Icon';
-import { SidebarItemType } from '../../../model/items';
+import { SidebarItemType } from 'widget/Sidebar/model/types/sidebarItem';
 import cls from './SidebarItem.module.scss';
 
 interface SidebarItemProps {
