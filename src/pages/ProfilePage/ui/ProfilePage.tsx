@@ -21,7 +21,7 @@ import { Text, TextTheme } from 'shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widget/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import cls from './ProfilePage.module.scss';
 

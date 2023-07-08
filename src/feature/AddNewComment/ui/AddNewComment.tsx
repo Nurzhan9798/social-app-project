@@ -39,6 +39,7 @@ export const AddNewComment = (props: AddNewCommentProps) => {
             <div className={classNames(cls.AddNewComment, {}, [className])}>
                 <Input
                     label={t('Add new comment')}
+                    placeholder={t('Comment')}
                     className={cls.input}
                     value={text}
                     onChange={onCommentTextChange}

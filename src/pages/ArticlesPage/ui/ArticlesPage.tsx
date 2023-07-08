@@ -5,9 +5,9 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoade
 import { useInitialEffect } from 'shared/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widget/Page';
+import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import { fetchArticles } from '../model/services/fetchArticles/fetchArticles';
 import {
     getArticlesPageError,
     getArticlesPageLoading,
@@ -31,8 +31,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const articles = useSelector(getArticles.selectAll);
 
     useInitialEffect(() => {
-        dispatch(articlesPageActions.initState());
-        dispatch(fetchArticles({ page: 1 }));
+        dispatch(initArticlesPage());
     });
 
     const onChangeView = useCallback((view: ArticleView) => {
@@ -44,7 +43,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     }, [dispatch]);
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page onScrollEnd={onLoadNextPart}>
                 <div className={classNames(cls.ArticlesPage, {}, [className])}>
                     <ArticleViewSelector

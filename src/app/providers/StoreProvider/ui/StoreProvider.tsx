@@ -13,12 +13,10 @@ interface StoreProviderProps {
 
 export const StoreProvider = (props: StoreProviderProps) => {
     const { children, initialState, asyncReducers } = props;
-    const navigate = useNavigate();
 
     const store = createReduxStore(
         initialState as StateScheme,
         asyncReducers as ReducersMapObject<StateScheme>,
-        navigate,
     );
     return (
         <Provider store={store}>
