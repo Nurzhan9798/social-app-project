@@ -21,13 +21,6 @@ body {
     display: flex;
 }
 
-.page-wrapper {
-    width: 100%;
-    padding: 20px;
-    height: calc(100vh - 82px);
-    overflow-y: auto;
-}
-
 .circle {
     border-radius: 50%;
 }

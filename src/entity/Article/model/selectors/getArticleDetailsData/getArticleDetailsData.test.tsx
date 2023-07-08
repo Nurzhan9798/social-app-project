@@ -11,6 +11,10 @@ describe('getArticleDetailsData.test', () => {
             img: '',
             type: [ArticleType.IT],
             views: 20,
+            user: {
+                id: '1',
+                username: 'nurzhan',
+            },
             blocks: [
                 {
                     id: '1',

@@ -1,0 +1,13 @@
+.CARD {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 50px;
+    column-gap: 74px;
+}
+
+.LIST {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}

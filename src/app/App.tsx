@@ -7,7 +7,6 @@ import { Navbar } from 'widget/Navbar';
 import { useDispatch, useSelector } from 'react-redux';
 import { userAction } from 'entity/User';
 import { getUserInited } from 'entity/User/model/selectors/getUserInited/getUserInited';
-import theme from '@storybook/addon-interactions/dist/ts3.9/theme';
 import { useTheme } from 'app/providers/ThemeProvider';
 
 function App() {

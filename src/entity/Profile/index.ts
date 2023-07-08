@@ -3,6 +3,7 @@ export { ProfileCard } from './ui/ProfileCard/ProfileCard';
 export {
     Profile,
     ProfileScheme,
+    ProfileValidationErrors,
 } from './model/types/Profile';
 
 export {
@@ -17,3 +18,4 @@ export { getProfileReadonly } from './model/selectors/getProfileReadonly/getProf
 
 export { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
 export { updateProfileData } from './model/services/updateProfileData/updateProfileData';
+export { getProfileValidationErrors } from './model/selectors/getProfileValidationErrors/getProfileValidationErrors';

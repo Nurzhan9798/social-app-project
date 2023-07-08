@@ -1,0 +1,101 @@
+.LIST {
+    .header {
+        display: flex;
+        align-items: center;
+    }
+
+    .username {
+        margin-left: 8px;
+    }
+
+    .date {
+        margin-left: auto;
+    }
+
+    .title {
+        margin-top: 8px;
+    }
+
+    .img {
+        width: 100%;
+        max-height: 250px;
+        object-fit: cover;
+        margin: 16px 0;
+    }
+
+    .footer {
+        margin-top: 16px;
+        display: flex;
+        align-items: center;
+    }
+
+    .views {
+        margin-left: auto;
+    }
+
+    .textBlock {
+        max-height: 200px;
+        overflow-y: hidden;
+    }
+}
+
+.CARD {
+    width: 250px;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 32px;
+    background-color: var(--dark-bg-color);
+
+    .imgWrapper {
+        position: relative;
+    }
+
+    .img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .date {
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: none;
+    }
+
+    .infoWrapper {
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+    }
+
+    .types p {
+        width: 130px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .views {
+        margin-left: auto;
+    }
+
+    .title {
+        margin-top: 8px;
+    }
+
+    .title p {
+        width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &:hover {
+        opacity: 0.8;
+        transform: scale(1.05);
+
+        .date {
+            display: block;
+        }
+    }
+}
