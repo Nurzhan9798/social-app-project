@@ -1,6 +1,6 @@
 import { useCallback, useRef } from 'react';
 
-export const useThrottle = (callback: (...args: any[]) => void, delay: number) => {
+export function useThrottle(callback: (...args: any[]) => void, delay: number) {
     const throttleRef = useRef(false);
 
     return useCallback((...args: any[]) => {
@@ -13,4 +13,4 @@ export const useThrottle = (callback: (...args: any[]) => void, delay: number) =
             }, delay);
         }
     }, [callback, delay]);
-};
+}

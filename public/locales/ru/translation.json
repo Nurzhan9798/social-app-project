@@ -43,5 +43,17 @@
   "Send": "Send",
   "Articles not found": "Articles not found",
   "Read more": "Read more",
-  "Comment": "Comment"
+  "Comment": "Comment",
+  "Sort": "Sort",
+  "Order": "Order",
+  "Search": "Search",
+  "ascending": "ascending",
+  "descending": "descending",
+  "created at": "created at",
+  "views": "views",
+  "title": "title",
+  "IT": "IT",
+  "Economics": "Economics",
+  "Science": "Science",
+  "All": "All"
 }

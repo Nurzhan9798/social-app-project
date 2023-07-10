@@ -19,7 +19,7 @@ export const LangSwitcher = memo((props: LangSwitcherProps) => {
         i18n.changeLanguage(lang);
     };
 
-    const languageOptions = useMemo<SelectOption[]>(() => [
+    const languageOptions = useMemo<SelectOption<string>[]>(() => [
         {
             value: 'kz',
             content: t('kz'),

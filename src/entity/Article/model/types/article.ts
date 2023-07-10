@@ -39,6 +39,7 @@ export type ArticleBlock = ArticleCodeBlock |
     ArticleVideoBlock;
 
 export enum ArticleType {
+    ALL = 'ALL',
     IT = 'IT',
     SCIENCE = 'SCIENCE',
     ECONOMICS = 'ECONOMICS'
@@ -59,4 +60,10 @@ export interface Article {
 export enum ArticleView {
     CARD = 'CARD',
     LIST = 'LIST'
+}
+
+export enum ArticleSortField {
+    VIEWS = 'views',
+    TITLE = 'title',
+    CREATED = 'createdAt',
 }
