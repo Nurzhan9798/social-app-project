@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleVideoBlock } from 'entity/Article/model/types/article';
+import { ArticleVideoBlock } from '../../model/types/article';
 import cls from './ArticleVideoBlockComponent.module.scss';
 
 interface ArticleVideoBlockComponentProps {

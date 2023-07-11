@@ -1,13 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Select } from 'shared/ui/Select';
-import { useSelector } from 'react-redux';
-import { getArticlesPageOrder, getArticlesPageSort } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
-import { useCallback, useMemo } from 'react';
-import { SelectOption } from 'shared/ui/Select/ui/Select';
+import { Select, SelectOption } from 'shared/ui/Select';
+import { useMemo } from 'react';
 import { SortOrder } from 'shared/types/SortOrder';
-import { ArticleSortField } from 'entity/Article/model/types/article';
-import { articlesPageActions } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
 import { useTranslation } from 'react-i18next';
+import { ArticleSortField } from '../../model/types/article';
 import cls from './ArticleSortSelector.module.scss';
 
 interface ArticleSortSelectorProps {

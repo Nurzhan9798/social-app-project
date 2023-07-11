@@ -1,26 +1,24 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleView, ArticleViewSelector } from 'entity/Article';
-import { useSelector } from 'react-redux';
 import {
-    getArticlesPageOrder, getArticlesPageSearch,
-    getArticlesPageSort, getArticlesPageType,
-    getArticlesPageView,
-} from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
-import { useCallback, useMemo } from 'react';
-import { articlesPageActions } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
+    ArticleView, ArticleViewSelector, ArticleSortSelector, ArticleTypeTabs,
+    ArticleSortField, ArticleType,
+} from 'entity/Article';
+import { useSelector } from 'react-redux';
+import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
-import { Select } from 'shared/ui/Select';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input';
-import { SelectOption } from 'shared/ui/Select/ui/Select';
-import { ArticleSortField, ArticleType } from 'entity/Article/model/types/article';
 import { SortOrder } from 'shared/types/SortOrder';
-import { fetchArticles } from 'pages/ArticlesPage/model/services/fetchArticles/fetchArticles';
 import { useDebounce } from 'shared/hooks/useDebounce';
-import { ArticleSortSelector } from 'entity/Article/ui/ArticleSortSelector/ArticleSortSelector';
-import { Tabs } from 'shared/ui/Tabs';
-import { TabItem } from 'shared/ui/Tabs/ui/Tabs';
-import { ArticleTypeTabs } from 'entity/Article/ui/ArticleTypeTabs/ArticleTypeTabs';
+import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
+import { articlesPageActions } from '../../model/slices/articlesPageSlice';
+import {
+    getArticlesPageOrder,
+    getArticlesPageSearch,
+    getArticlesPageSort,
+    getArticlesPageType,
+    getArticlesPageView,
+} from '../../model/selectors/articlesPageSelectors';
 import cls from './ArticlesPageFilters.module.scss';
 
 interface ArticlesPageFiltersProps {
@@ -29,9 +27,9 @@ interface ArticlesPageFiltersProps {
 
 export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
     const { className } = props;
-    const view = useSelector(getArticlesPageView);
     const dispatch = useAppDispatch();
     const { t } = useTranslation();
+    const view = useSelector(getArticlesPageView);
     const sort = useSelector(getArticlesPageSort);
     const order = useSelector(getArticlesPageOrder);
     const search = useSelector(getArticlesPageSearch);

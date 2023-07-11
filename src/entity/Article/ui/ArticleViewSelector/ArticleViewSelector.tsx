@@ -1,9 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleView } from 'entity/Article';
-import CardTileIcon from 'shared/assets/icons/card-tile.svg';
-import ListIcon from 'shared/assets/icons/list.svg';
 import { Icon } from 'shared/ui/Icon';
 import { Button, ButtonTheme } from 'shared/ui/Button';
+import CardTileIcon from 'shared/assets/icons/card-tile.svg';
+import ListIcon from 'shared/assets/icons/list.svg';
+import { ArticleView } from '../../model/types/article';
 import cls from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {

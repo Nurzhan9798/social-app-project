@@ -5,8 +5,7 @@ import { Sidebar } from 'widget/Sidebar';
 import { PageLoader } from 'shared/ui/PageLoader';
 import { Navbar } from 'widget/Navbar';
 import { useDispatch, useSelector } from 'react-redux';
-import { userAction } from 'entity/User';
-import { getUserInited } from 'entity/User/model/selectors/getUserInited/getUserInited';
+import { userAction, getUserInited } from 'entity/User';
 import { useTheme } from 'app/providers/ThemeProvider';
 
 function App() {

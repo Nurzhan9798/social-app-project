@@ -10,12 +10,13 @@ import { Avatar } from 'shared/ui/Avatar';
 import { Icon } from 'shared/ui/Icon';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
-import { ArticleBlock, ArticleBlockType } from 'entity/Article/model/types/article';
 import { TextSize } from 'shared/ui/Text/ui/Text';
-import { ArticleTextBlockComponent } from 'entity/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { ArticleCodeBlockComponent } from 'entity/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleImageBlockComponent } from 'entity/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { ArticleVideoBlockComponent } from 'entity/Article/ui/ArticleVideoBlockComponent/ArticleVideoBlockComponent';
+import { useInitialEffect } from 'shared/hooks/useInitialEffect';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleVideoBlockComponent } from '../ArticleVideoBlockComponent/ArticleVideoBlockComponent';
+import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import { articleDetailsReducers } from '../../model/slices/articleDetailsSlice';
 import { fetchArticleDetailsById } from '../../model/services/fetchArticleDetailsById/fetchArticleDetailsById';
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError';
@@ -43,11 +44,9 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
     const error = useSelector(getArticleDetailsError);
     const article = useSelector(getArticleDetailsData);
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchArticleDetailsById(articleId));
-        }
-    }, [articleId, dispatch]);
+    useInitialEffect(() => {
+        dispatch(fetchArticleDetailsById(articleId));
+    });
 
     const renderBlock = (block: ArticleBlock) => {
         switch (block.type) {

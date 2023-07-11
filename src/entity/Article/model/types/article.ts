@@ -6,7 +6,8 @@ export enum ArticleBlockType {
     IMAGE = 'IMAGE',
     VIDEO = 'VIDEO',
 }
-export interface ArticleBlockBase {
+
+interface ArticleBlockBase {
     id: string;
     type: ArticleBlockType;
 }

@@ -3,11 +3,11 @@ import { Input } from 'shared/ui/Input';
 import { Button } from 'shared/ui/Button';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
-import { addNewCommentActions, addNewCommentReducers } from 'feature/AddNewComment/model/slices/addNewCommentSlice';
 import { useSelector } from 'react-redux';
-import { getAddNewCommentText } from 'feature/AddNewComment/model/selectors/addNewCommentSelectors';
+import { getAddNewCommentText } from '../model/selectors/addNewCommentSelectors';
+import { addNewCommentActions, addNewCommentReducers } from '../model/slices/addNewCommentSlice';
 import cls from './AddNewComment.module.scss';
 
 interface AddNewCommentProps {
@@ -19,7 +19,7 @@ const reducers: ReducersList = {
     addNewComment: addNewCommentReducers,
 };
 
-export const AddNewComment = (props: AddNewCommentProps) => {
+const AddNewComment = (props: AddNewCommentProps) => {
     const { className, onSendComment } = props;
     const { t } = useTranslation();
     const text = useSelector(getAddNewCommentText);
@@ -52,3 +52,5 @@ export const AddNewComment = (props: AddNewCommentProps) => {
 
     );
 };
+
+export default AddNewComment;
