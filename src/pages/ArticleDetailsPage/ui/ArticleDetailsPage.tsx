@@ -14,14 +14,15 @@ import { Button, ButtonTheme } from 'shared/ui/Button';
 import { RoutePath } from 'shared/config/routre/routeConfig';
 import { Page } from 'widget/Page';
 import {
-    getArticleCommentsError,
-    getArticleCommentsLoading,
-} from '../model/selectors/comments';
-import {
-    fetchCommentsByArticleId,
-} from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+    fetchArticleRecommendations,
+} from 'pages/ArticleDetailsPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+import { articleDetailsPageReducer } from '../model/slices';
+import { getArticleRecommendations } from '../model/slices/articleDetailsRecomendationsSlice';
+import { getArticleRecommendationsIsLoading } from '../model/selectors/recommendations';
+import { getArticleCommentsError, getArticleCommentsLoading } from '../model/selectors/comments';
+import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
-import { articleDetailsCommentsReducer, getArticleComments } from '../model/slices/articleDetailsCommentsSlice';
+import { getArticleComments } from '../model/slices/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -29,8 +30,7 @@ interface ArticleDetailsPageProps {
 }
 
 const reducers: ReducersList = {
-    articleDetailsComments: articleDetailsCommentsReducer,
-
+    articleDetailsPage: articleDetailsPageReducer,
 };
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { className } = props;
@@ -41,9 +41,12 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const comments = useSelector(getArticleComments.selectAll);
     const commentsLoading = useSelector(getArticleCommentsLoading);
     const commentsError = useSelector(getArticleCommentsError);
+    const recommendationsLoading = useSelector(getArticleRecommendationsIsLoading);
+    const recommendationsList = useSelector(getArticleRecommendations.selectAll);
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
+        dispatch(fetchArticleRecommendations());
     });
 
     const onSendComment = useCallback((text: string) => {
@@ -77,8 +80,16 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                         articleId={id}
                     />
                     <Text
+                        title={t('Recommendations')}
+                    />
+                    <ArticleList
+                        articles={recommendationsList}
+                        isLoading={recommendationsLoading}
+                        className={cls.recommendationList}
+                        target="_blank"
+                    />
+                    <Text
                         title={t('Comments')}
-                        className={cls.commentTitle}
                     />
                     <AddNewComment onSendComment={onSendComment} />
                     <CommentList

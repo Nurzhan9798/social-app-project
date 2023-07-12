@@ -4,11 +4,10 @@ import { Icon } from 'shared/ui/Icon';
 import { Card } from 'shared/ui/Card';
 import { RoutePath } from 'shared/config/routre/routeConfig';
 import { Avatar } from 'shared/ui/Avatar';
-import { Button, ButtonTheme } from 'shared/ui/Button';
 import { useTranslation } from 'react-i18next';
-import { useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { HTMLAttributeAnchorTarget } from 'react';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
+import { AppLink } from 'shared/ui/AppLink';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import {
     Article, ArticleBlockType, ArticleTextBlock, ArticleView,
@@ -20,6 +19,7 @@ interface ArticleListItemProps {
     isLoading: boolean;
     article: Article;
     view?: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem = (props: ArticleListItemProps) => {
@@ -28,13 +28,9 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
         isLoading,
         article,
         view = ArticleView.CARD,
+        target,
     } = props;
     const { t } = useTranslation();
-    const navigate = useNavigate();
-
-    const onOpenArticle = useCallback(() => {
-        navigate(`${RoutePath.article_details}${article.id}`);
-    }, [article.id, navigate]);
 
     if (view === ArticleView.LIST) {
         const textBlock = article.blocks.find(
@@ -53,9 +49,9 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                 <img src={article.img} className={cls.img} alt={article.title} />
                 <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
                 <div className={cls.footer}>
-                    <Button onClick={onOpenArticle} theme={ButtonTheme.OUTLINE}>
+                    <AppLink to={`${RoutePath.article_details}${article.id}`} target={target}>
                         {t('Read more')}
-                    </Button>
+                    </AppLink>
                     <Text text={String(article.views)} className={cls.views} />
                     <Icon Svg={EyeIcon} width={20} height={20} />
                 </div>
@@ -64,20 +60,24 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
     }
 
     return (
-        <Card
+        <AppLink
+            to={`${RoutePath.article_details}${article.id}`}
+            target={target}
             className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
-            onClick={onOpenArticle}
         >
-            <div className={cls.imgWrapper}>
-                <img src={article.img} alt={article.title} className={cls.img} />
-                <Text text={article.createdAt} className={cls.date} />
-            </div>
-            <div className={cls.infoWrapper}>
-                <Text text={article.type.join(', ')} className={cls.types} />
-                <Text text={String(article.views)} className={cls.views} />
-                <Icon Svg={EyeIcon} width={20} height={20} />
-            </div>
-            <Text title={article.title} className={cls.title} />
-        </Card>
+            <Card>
+                <div className={cls.imgWrapper}>
+                    <img src={article.img} alt={article.title} className={cls.img} />
+                    <Text text={article.createdAt} className={cls.date} />
+                </div>
+                <div className={cls.infoWrapper}>
+                    <Text text={article.type.join(', ')} className={cls.types} />
+                    <Text text={String(article.views)} className={cls.views} />
+                    <Icon Svg={EyeIcon} width={20} height={20} />
+                </div>
+                <Text title={article.title} className={cls.title} />
+            </Card>
+        </AppLink>
+
     );
 };
