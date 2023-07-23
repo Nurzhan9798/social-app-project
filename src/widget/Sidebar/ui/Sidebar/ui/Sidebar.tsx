@@ -1,8 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import React, { memo, useMemo, useState } from 'react';
-import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
-import { Button, ButtonTheme } from 'shared/ui/Button';
-import { LangSwitcher } from 'shared/ui/LangSwitcher';
+import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { LangSwitcher } from 'feature/LangSwitcher';
 import { SidebarItem } from 'widget/Sidebar/ui/SidebarItem';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entity/User';

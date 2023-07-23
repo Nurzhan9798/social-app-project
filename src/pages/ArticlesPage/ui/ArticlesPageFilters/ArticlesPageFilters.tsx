@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { useTranslation } from 'react-i18next';
-import { Input } from 'shared/ui/Input';
+import { Input } from 'shared/ui/Input/Input';
 import { SortOrder } from 'shared/types/SortOrder';
 import { useDebounce } from 'shared/hooks/useDebounce';
 import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';

@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Text } from 'shared/ui/Text';
+import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget } from 'react';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';

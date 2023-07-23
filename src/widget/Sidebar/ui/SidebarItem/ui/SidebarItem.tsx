@@ -1,10 +1,10 @@
-import { AppLink } from 'shared/ui/AppLink';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import React, { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entity/User';
-import { Icon } from 'shared/ui/Icon';
+import { Icon } from 'shared/ui/Icon/Icon';
 import { SidebarItemType } from 'widget/Sidebar/model/types/sidebarItem';
 import cls from './SidebarItem.module.scss';
 

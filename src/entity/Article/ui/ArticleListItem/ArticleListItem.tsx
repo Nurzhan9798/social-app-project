@@ -1,13 +1,13 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Text } from 'shared/ui/Text';
-import { Icon } from 'shared/ui/Icon';
-import { Card } from 'shared/ui/Card';
+import { Text } from 'shared/ui/Text/Text';
+import { Icon } from 'shared/ui/Icon/Icon';
+import { Card } from 'shared/ui/Card/Card';
 import { RoutePath } from 'shared/config/routre/routeConfig';
-import { Avatar } from 'shared/ui/Avatar';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget } from 'react';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
-import { AppLink } from 'shared/ui/AppLink';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import {
     Article, ArticleBlockType, ArticleTextBlock, ArticleView,

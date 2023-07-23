@@ -1,0 +1,31 @@
+.Listbox {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    position: relative;
+}
+
+.button {
+    width: 100%;
+}
+
+.options {
+    position: absolute;
+    top: 100%;
+    min-width: 100%;
+    z-index: 10000;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: var(--bg-color);
+    border: 1px solid var(--accent-color);
+}
+
+.item {
+    padding: 5px 16px;
+    cursor: pointer;
+}
+
+.active,
+.selected {
+    background-color: var(--light-bg-color);
+}

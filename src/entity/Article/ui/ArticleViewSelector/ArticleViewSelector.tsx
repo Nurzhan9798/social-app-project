@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Icon } from 'shared/ui/Icon';
-import { Button, ButtonTheme } from 'shared/ui/Button';
+import { Icon } from 'shared/ui/Icon/Icon';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import CardTileIcon from 'shared/assets/icons/card-tile.svg';
 import ListIcon from 'shared/assets/icons/list.svg';
 import { ArticleView } from '../../model/types/article';

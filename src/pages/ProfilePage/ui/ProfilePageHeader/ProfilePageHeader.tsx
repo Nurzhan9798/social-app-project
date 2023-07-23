@@ -1,6 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button';
-import { ButtonColor } from 'shared/ui/Button/ui/Button';
+import { Button, ButtonTheme, ButtonColor } from 'shared/ui/Button/Button';
 import React from 'react';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
@@ -8,7 +7,7 @@ import {
     getProfileForm, getProfileReadonly, profileAction, updateProfileData,
 } from 'entity/Profile';
 import { useTranslation } from 'react-i18next';
-import { Text } from 'shared/ui/Text';
+import { Text } from 'shared/ui/Text/Text';
 import { getUserAuthData } from 'entity/User';
 import cls from './ProfilePageHeader.module.scss';
 

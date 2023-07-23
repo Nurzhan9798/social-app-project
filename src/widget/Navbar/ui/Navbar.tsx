@@ -1,11 +1,14 @@
 import React, { memo, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui/Button';
+import { Button } from 'shared/ui/Button/Button';
 import { LoginModal } from 'feature/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userAction } from 'entity/User';
 import { useNavigate } from 'react-router-dom';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { RoutePath } from 'shared/config/routre/routeConfig';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -36,7 +39,20 @@ export const Navbar = memo((props: NavbarProps) => {
         return (
             <div className={classNames(cls.Navbar, {}, [classnames])}>
                 <div className={classNames(cls.links, {}, [])}>
-                    <Button onClick={logout}>{t('Logout')}</Button>
+                    <Dropdown
+                        trigger={<Avatar size={30} src={authData.avatar} />}
+                        options={[
+                            {
+                                content: t('Profile'),
+                                href: RoutePath.profile + authData.id,
+                            },
+                            {
+                                content: t('Logout'),
+                                onClick: logout,
+                            },
+                        ]}
+                        direction="bottom left"
+                    />
                 </div>
             </div>
         );

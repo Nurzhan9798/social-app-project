@@ -17,7 +17,8 @@ module.exports = {
     "react",
     "@typescript-eslint",
     'i18next',
-    "react-hooks"
+    "react-hooks",
+    "bakytov-eslint-plugin"
   ],
   rules: {
     'react/jsx-indent': [2, 4],
@@ -39,7 +40,7 @@ module.exports = {
     'no-underscore-dangle': 'off',
     "i18next/no-literal-string": ['error', {
       markupOnly: true,
-      ignoreAttribute: ['data-testid', 'to', 'target']
+      ignoreAttribute: ['as', 'data-testid', 'to', 'target', 'direction']
     }],
     'max-len': ["error", 120, {
       "ignoreComments": true
@@ -51,7 +52,8 @@ module.exports = {
     "no-param-reassign": "off",
     "no-undef": 'off',
     "react/no-array-index-key": 'off',
-    "arrow-body-style": "off"
+    "arrow-body-style": "off",
+    "bakytov-eslint-plugin/path-checker": "error",
   },
   globals: {
     __IS_DEV__: true,

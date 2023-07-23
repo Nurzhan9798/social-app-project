@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Input } from 'shared/ui/Input';
-import { Button } from 'shared/ui/Button';
+import { Input } from 'shared/ui/Input/Input';
+import { Button } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { useCallback } from 'react';

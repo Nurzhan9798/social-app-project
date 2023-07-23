@@ -1,16 +1,17 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
-import { Skeleton } from 'shared/ui/Skeleton';
-import { Text, TextAlign, TextTheme } from 'shared/ui/Text';
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import {
+    Text, TextAlign, TextSize, TextTheme,
+} from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
-import { Avatar } from 'shared/ui/Avatar';
-import { Icon } from 'shared/ui/Icon';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Icon } from 'shared/ui/Icon/Icon';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
-import { TextSize } from 'shared/ui/Text/ui/Text';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';

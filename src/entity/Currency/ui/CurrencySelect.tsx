@@ -1,8 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import React from 'react';
-import { Select } from 'shared/ui/Select';
-import { SelectTheme } from 'shared/ui/Select/ui/Select';
+import { Listbox } from 'shared/ui/Listbox/Listbox';
 import { Currency } from '../model/types/currency';
 
 interface CurrencySelectProps {
@@ -27,19 +26,16 @@ export const CurrencySelect = (props: CurrencySelectProps) => {
     } = props;
 
     const { t } = useTranslation();
-    const onChangeHandler = (value: string) => {
-        onChange?.(value as Currency);
-    };
 
     return (
-        <Select
+        <Listbox
             className={classNames('', {}, [className])}
             label={t('Currency')}
+            defaultValue={t('Currency')}
             options={options}
             value={value}
-            onChange={onChangeHandler}
+            onChange={onChange}
             readonly={readonly}
-            theme={SelectTheme.NORMAL}
         />
     );
 };

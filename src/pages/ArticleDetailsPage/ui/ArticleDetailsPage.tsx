@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
 import { ArticleDetails, ArticleList } from 'entity/Article';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Text } from 'shared/ui/Text';
+import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { CommentList } from 'entity/Comment';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
@@ -10,12 +10,12 @@ import { useInitialEffect } from 'shared/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { AddNewComment } from 'feature/AddNewComment';
-import { Button, ButtonTheme } from 'shared/ui/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routre/routeConfig';
 import { Page } from 'widget/Page';
 import {
     fetchArticleRecommendations,
-} from 'pages/ArticleDetailsPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+} from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { articleDetailsPageReducer } from '../model/slices';
 import { getArticleRecommendations } from '../model/slices/articleDetailsRecomendationsSlice';
 import { getArticleRecommendationsIsLoading } from '../model/selectors/recommendations';

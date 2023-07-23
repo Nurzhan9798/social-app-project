@@ -6,18 +6,18 @@ import {
     getProfileForm,
     getProfileIsLoading,
     getProfileReadonly,
+    getProfileValidationErrors,
     profileAction,
     ProfileCard,
     profileReducer,
-    getProfileValidationErrors,
     ProfileValidationErrors,
 } from 'entity/Profile';
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Currency } from 'entity/Currency';
 import { Country } from 'entity/Country';
-import { Text, TextTheme } from 'shared/ui/Text';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect';
