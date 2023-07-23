@@ -5,13 +5,13 @@ import { userReducer } from 'entity/User';
 import { $api } from 'shared/api/api';
 import { scrollRestorationReducer } from 'feature/ScrollRestoration';
 import { createReducerManager } from './reducerManager';
-import { StateScheme } from './StateScheme';
+import { StateSchema } from './StateSchema';
 
 export function createReduxStore(
-    initialState: StateScheme,
-    asyncReducers?: ReducersMapObject<StateScheme>,
+    initialState: StateSchema,
+    asyncReducers?: ReducersMapObject<StateSchema>,
 ) {
-    const rootReducers: ReducersMapObject<StateScheme> = {
+    const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         user: userReducer,
         scrollRestoration: scrollRestorationReducer,
@@ -22,7 +22,7 @@ export function createReduxStore(
     };
     const reducerManager = createReducerManager(rootReducers);
     const store = configureStore({
-        reducer: reducerManager.reduce as Reducer<CombinedState<StateScheme>>,
+        reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
         devTools: __IS_DEV__,
         preloadedState: initialState,
         middleware: (getDefaultMiddleware) => getDefaultMiddleware(

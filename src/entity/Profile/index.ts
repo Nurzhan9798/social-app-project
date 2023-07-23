@@ -2,7 +2,7 @@ export { ProfileCard } from './ui/ProfileCard/ProfileCard';
 
 export {
     Profile,
-    ProfileScheme,
+    ProfileSchema,
     ProfileValidationErrors,
 } from './model/types/Profile';
 

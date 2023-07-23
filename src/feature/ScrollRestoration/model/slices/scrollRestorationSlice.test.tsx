@@ -1,13 +1,13 @@
-import { ScrollRestorationScheme, ScrollScheme } from '../types/scrollRestoration';
+import { ScrollRestorationSchema, ScrollSchema } from '../types/scrollRestorationSchema';
 import { scrollRestorationActions, scrollRestorationReducer } from './scrollRestorationSlice';
 
 describe('scrollRestorationSlice.test', () => {
     test('setScrollPosition', () => {
-        const data: ScrollScheme = {};
+        const data: ScrollSchema = {};
         data.page = 221;
-        const state: DeepPartial<ScrollRestorationScheme> = { scroll: data };
+        const state: DeepPartial<ScrollRestorationSchema> = { scroll: data };
         expect(scrollRestorationReducer(
-            state as ScrollRestorationScheme,
+            state as ScrollRestorationSchema,
             scrollRestorationActions.setScrollPosition({ path: 'page', position: 500 }),
         )).toEqual({
             scroll: {
@@ -16,10 +16,10 @@ describe('scrollRestorationSlice.test', () => {
         });
     });
     test('setScrollPosition with empty', () => {
-        const data: ScrollScheme = {};
-        const state: DeepPartial<ScrollRestorationScheme> = { scroll: data };
+        const data: ScrollSchema = {};
+        const state: DeepPartial<ScrollRestorationSchema> = { scroll: data };
         expect(scrollRestorationReducer(
-            state as ScrollRestorationScheme,
+            state as ScrollRestorationSchema,
             scrollRestorationActions.setScrollPosition({ path: 'page', position: 500 }),
         )).toEqual({
             scroll: {

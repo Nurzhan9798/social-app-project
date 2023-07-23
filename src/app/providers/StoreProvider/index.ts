@@ -1,2 +1,2 @@
 export { StoreProvider } from './ui/StoreProvider';
-export { StateScheme, ReduxStoreWithManager, ThunkConfig } from './config/StateScheme';
+export { StateSchema, ReduxStoreWithManager, ThunkConfig } from './config/StateSchema';

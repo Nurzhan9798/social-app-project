@@ -1,10 +1,10 @@
-import { StateScheme } from 'app/providers/StoreProvider';
-import { LoginFormScheme } from 'feature/AuthByUsername';
+import { StateSchema } from 'app/providers/StoreProvider';
+import { LoginFormSchema } from 'feature/AuthByUsername';
 
-const defaultLoginForm: LoginFormScheme = {
+const defaultLoginForm: LoginFormSchema = {
     username: '',
     password: '',
     isLoading: false,
     error: undefined,
 };
-export const getLoginState = (state: StateScheme) => state?.loginForm || defaultLoginForm;
+export const getLoginState = (state: StateSchema) => state?.loginForm || defaultLoginForm;

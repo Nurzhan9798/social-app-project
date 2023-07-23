@@ -1,31 +1,31 @@
-import { StateScheme } from 'app/providers/StoreProvider';
+import { StateSchema } from 'app/providers/StoreProvider';
 import { getAddNewCommentText, getAddNewCommentError } from './addNewCommentSelectors';
 
 describe('addNewCommentSelectors test', () => {
     test('getAddNewCommentText success', () => {
         const data = 'text';
-        const state: DeepPartial<StateScheme> = {
+        const state: DeepPartial<StateSchema> = {
             addNewComment: {
                 text: data,
             },
         };
-        expect(getAddNewCommentText(state as StateScheme)).toEqual(data);
+        expect(getAddNewCommentText(state as StateSchema)).toEqual(data);
     });
     test('getAddNewCommentText with empty', () => {
-        const state: DeepPartial<StateScheme> = {};
-        expect(getAddNewCommentText(state as StateScheme)).toEqual('');
+        const state: DeepPartial<StateSchema> = {};
+        expect(getAddNewCommentText(state as StateSchema)).toEqual('');
     });
     test('getAddNewCommentError success', () => {
         const data = 'error';
-        const state: DeepPartial<StateScheme> = {
+        const state: DeepPartial<StateSchema> = {
             addNewComment: {
                 error: data,
             },
         };
-        expect(getAddNewCommentError(state as StateScheme)).toEqual(data);
+        expect(getAddNewCommentError(state as StateSchema)).toEqual(data);
     });
     test('getAddNewCommentError with empty', () => {
-        const state: DeepPartial<StateScheme> = {};
-        expect(getAddNewCommentError(state as StateScheme)).toEqual(undefined);
+        const state: DeepPartial<StateSchema> = {};
+        expect(getAddNewCommentError(state as StateSchema)).toEqual(undefined);
     });
 });

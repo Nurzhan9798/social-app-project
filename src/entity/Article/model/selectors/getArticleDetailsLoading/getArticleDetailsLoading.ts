@@ -1,3 +1,3 @@
-import { StateScheme } from 'app/providers/StoreProvider';
+import { StateSchema } from 'app/providers/StoreProvider';
 
-export const getArticleDetailsLoading = (state: StateScheme) => state.articleDetails?.isLoading || false;
+export const getArticleDetailsLoading = (state: StateSchema) => state.articleDetails?.isLoading || false;

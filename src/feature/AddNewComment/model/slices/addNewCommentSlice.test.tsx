@@ -1,12 +1,12 @@
-import { AddNewCommentScheme } from '../types/addNewCommentScheme';
+import { AddNewCommentSchema } from '../types/addNewCommentSchema';
 import { addNewCommentActions, addNewCommentReducers } from './addNewCommentSlice';
 
 describe('addNewCommentSlice.test', () => {
     test('set text success', () => {
-        const state: DeepPartial<AddNewCommentScheme> = { text: '123' };
+        const state: DeepPartial<AddNewCommentSchema> = { text: '123' };
         expect(
             addNewCommentReducers(
-                state as AddNewCommentScheme,
+                state as AddNewCommentSchema,
                 addNewCommentActions.setText('321'),
             ),
         ).toEqual({

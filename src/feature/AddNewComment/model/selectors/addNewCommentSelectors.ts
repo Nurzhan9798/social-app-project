@@ -1,4 +1,4 @@
-import { StateScheme } from 'app/providers/StoreProvider';
+import { StateSchema } from 'app/providers/StoreProvider';
 
-export const getAddNewCommentText = (state: StateScheme) => state.addNewComment?.text ?? '';
-export const getAddNewCommentError = (state: StateScheme) => state.addNewComment?.error;
+export const getAddNewCommentText = (state: StateSchema) => state.addNewComment?.text ?? '';
+export const getAddNewCommentError = (state: StateSchema) => state.addNewComment?.error;

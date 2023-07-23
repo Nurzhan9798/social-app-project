@@ -8,7 +8,7 @@ import { loginByUsername } from './loginByUsername';
 describe('loginByUsername.test', () => {
     /*
     let dispatch: Dispatch;
-    let getState: () => StateScheme;
+    let getState: () => StateSchema;
 
     beforeEach(() => {
         dispatch = jest.fn();

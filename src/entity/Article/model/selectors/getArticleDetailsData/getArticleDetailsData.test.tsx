@@ -1,4 +1,4 @@
-import { StateScheme } from 'app/providers/StoreProvider';
+import { StateSchema } from 'app/providers/StoreProvider';
 import { getArticleDetailsData } from './getArticleDetailsData';
 import { Article, ArticleBlockType, ArticleType } from '../../types/article';
 
@@ -24,14 +24,14 @@ describe('getArticleDetailsData.test', () => {
             ],
             subtitle: '',
         };
-        const state: DeepPartial<StateScheme> = {
+        const state: DeepPartial<StateSchema> = {
             articleDetails: { data },
         };
-        expect(getArticleDetailsData(state as StateScheme)).toEqual(data);
+        expect(getArticleDetailsData(state as StateSchema)).toEqual(data);
     });
 
     test('with empty state', () => {
-        const state: DeepPartial<StateScheme> = {};
-        expect(getArticleDetailsData(state as StateScheme)).toEqual(undefined);
+        const state: DeepPartial<StateSchema> = {};
+        expect(getArticleDetailsData(state as StateSchema)).toEqual(undefined);
     });
 });

@@ -6,7 +6,7 @@ export {
     ArticleSortField,
 } from './model/types/article';
 export { articleDetailsReducers } from './model/slices/articleDetailsSlice';
-export { ArticleDetailsScheme } from './model/types/articleDetailsScheme';
+export { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
 export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
 export { ArticleList } from './ui/ArticleList/ArticleList';
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';

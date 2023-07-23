@@ -4,7 +4,7 @@ export interface User {
     avatar?: string;
 }
 
-export interface UserScheme {
+export interface UserSchema {
     authData?: User;
     _inited: boolean;
 }

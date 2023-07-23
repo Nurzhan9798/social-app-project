@@ -1,35 +1,35 @@
-import { StateScheme } from 'app/providers/StoreProvider';
+import { StateSchema } from 'app/providers/StoreProvider';
 import { getScrollRestoration, getScrollRestorationByPath } from 'feature/ScrollRestoration';
-import { ScrollRestorationScheme, ScrollScheme } from '../types/scrollRestoration';
+import { ScrollRestorationSchema, ScrollSchema } from '../types/scrollRestorationSchema';
 
 describe('scrollRestorationSelector.test', () => {
     test('getScrollRestoration', () => {
-        const data: ScrollScheme = {};
+        const data: ScrollSchema = {};
         data.page = 221;
-        const state: DeepPartial<StateScheme> = {
+        const state: DeepPartial<StateSchema> = {
             scrollRestoration: {
                 scroll: data,
             },
         };
-        expect(getScrollRestoration(state as StateScheme)).toEqual(data);
+        expect(getScrollRestoration(state as StateSchema)).toEqual(data);
     });
     test('getScrollRestoration with empty', () => {
-        const state: DeepPartial<StateScheme> = {};
-        expect(getScrollRestoration(state as StateScheme)).toEqual(undefined);
+        const state: DeepPartial<StateSchema> = {};
+        expect(getScrollRestoration(state as StateSchema)).toEqual(undefined);
     });
 
     test('getScrollRestorationByPath', () => {
-        const data: ScrollScheme = {};
+        const data: ScrollSchema = {};
         data.page = 221;
-        const state: DeepPartial<StateScheme> = {
+        const state: DeepPartial<StateSchema> = {
             scrollRestoration: {
                 scroll: data,
             },
         };
-        expect(getScrollRestorationByPath(state as StateScheme, 'page')).toEqual(221);
+        expect(getScrollRestorationByPath(state as StateSchema, 'page')).toEqual(221);
     });
     test('getScrollRestorationByPath with empty', () => {
-        const state: DeepPartial<StateScheme> = {};
-        expect(getScrollRestorationByPath(state as StateScheme, 'page')).toEqual(0);
+        const state: DeepPartial<StateSchema> = {};
+        expect(getScrollRestorationByPath(state as StateSchema, 'page')).toEqual(0);
     });
 });

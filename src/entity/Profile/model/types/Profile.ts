@@ -22,7 +22,7 @@ export interface Profile {
     avatar?: string;
 }
 
-export interface ProfileScheme {
+export interface ProfileSchema {
     data?: Profile;
     form?: Profile;
     isLoading: boolean;

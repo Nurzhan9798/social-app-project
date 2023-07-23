@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { getScrollRestorationByPath, scrollRestorationActions } from 'feature/ScrollRestoration';
 import { useSelector } from 'react-redux';
-import { StateScheme } from 'app/providers/StoreProvider';
+import { StateSchema } from 'app/providers/StoreProvider';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect';
 import { useThrottle } from 'shared/hooks/useThrottle';
 import cls from './Page.module.scss';
@@ -28,7 +28,7 @@ export const Page = (props: PageProps) => {
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const { pathname } = useLocation();
     const dispatch = useAppDispatch();
-    const scrollTop = useSelector((state: StateScheme) => getScrollRestorationByPath(state, pathname));
+    const scrollTop = useSelector((state: StateSchema) => getScrollRestorationByPath(state, pathname));
 
     useInitialEffect(() => {
         wrapperRef.current.scrollTop = scrollTop;

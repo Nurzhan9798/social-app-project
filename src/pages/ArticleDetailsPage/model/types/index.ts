@@ -1,9 +1,9 @@
-import { ArticlDetailsCommentsScheme } from './ArticlDetailsCommentsScheme';
+import { ArticlDetailsCommentsSchema } from './ArticlDetailsCommentsSchema';
 import {
-    ArticleDetailsRecomendationsScheme,
-} from './ArticleDetailsRecomendationsScheme';
+    ArticleDetailsRecomendationsSchema,
+} from './ArticleDetailsRecomendationsSchema';
 
-export interface ArticleDetailsPageScheme {
-    comment: ArticlDetailsCommentsScheme,
-    recommendations: ArticleDetailsRecomendationsScheme
+export interface ArticleDetailsPageSchema {
+    comment: ArticlDetailsCommentsSchema,
+    recommendations: ArticleDetailsRecomendationsSchema
 }

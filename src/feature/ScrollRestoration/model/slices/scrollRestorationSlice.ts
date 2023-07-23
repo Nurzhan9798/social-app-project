@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {
-    ScrollRestorationScheme,
-} from '../types/scrollRestoration';
+    ScrollRestorationSchema,
+} from '../types/scrollRestorationSchema';
 
-const initialState: ScrollRestorationScheme = {
+const initialState: ScrollRestorationSchema = {
     scroll: {},
 };
 
