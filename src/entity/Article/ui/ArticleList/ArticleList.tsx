@@ -35,14 +35,6 @@ export const ArticleList = (props: ArticleListProps) => {
 
     const { t } = useTranslation();
 
-    if (isLoading) {
-        return (
-            <div className={classNames('', {}, [className, cls[view]])}>
-                {getSkeletons(view)}
-            </div>
-        );
-    }
-
     const renderArticle = (article: Article) => (
         <ArticleListItem
             isLoading={false}
@@ -53,11 +45,14 @@ export const ArticleList = (props: ArticleListProps) => {
         />
     );
 
+    if (!isLoading && articles.length === 0) {
+        return <Text text={t('Articles not found')} />;
+    }
+
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-            {articles.length
-                ? articles.map(renderArticle)
-                : <Text text={t('Articles not found')} />}
+            {articles.length > 0 && articles.map(renderArticle)}
+            {isLoading && getSkeletons(view)}
         </div>
     );
 };
