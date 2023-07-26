@@ -16,7 +16,7 @@ describe('getProfileForm.test', () => {
             avatar: '',
         };
         const state: DeepPartial<StateSchema> = {
-            profile: {
+            editableProfileCard: {
                 form: data,
             },
         };

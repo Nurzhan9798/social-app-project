@@ -1,7 +1,7 @@
 import { TestAsyncThunk } from 'shared/lib/test/TestAsyncThunk/TestAsyncThunk';
 import { Currency } from 'entity/Currency';
 import { Country } from 'entity/Country';
-import { ProfileValidationErrors } from 'entity/Profile/model/types/Profile';
+import { ProfileValidationErrors } from '../../types/editableProfileCardSchema';
 import { updateProfileData } from './updateProfileData';
 
 const data = {
@@ -18,7 +18,7 @@ const data = {
 describe('updateProfileData.test', () => {
     test('success', async () => {
         const thunk = new TestAsyncThunk(updateProfileData, {
-            profile: {
+            editableProfileCard: {
                 form: data,
             },
         });
@@ -34,7 +34,7 @@ describe('updateProfileData.test', () => {
 
     test('error', async () => {
         const thunk = new TestAsyncThunk(updateProfileData, {
-            profile: {
+            editableProfileCard: {
                 form: data,
             },
         });
@@ -50,7 +50,7 @@ describe('updateProfileData.test', () => {
 
     test('validate error', async () => {
         const thunk = new TestAsyncThunk(updateProfileData, {
-            profile: {
+            editableProfileCard: {
                 form: { ...data, lastname: '' },
             },
         });

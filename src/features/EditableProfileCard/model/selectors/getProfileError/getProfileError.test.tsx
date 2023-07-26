@@ -4,7 +4,7 @@ import { getProfileError } from './getProfileError';
 describe('getProfileError.test', () => {
     test('should return error', () => {
         const state: DeepPartial<StateSchema> = {
-            profile: {
+            editableProfileCard: {
                 error: 'error',
             },
         };

@@ -1,12 +1,11 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { getProfileReadonly } from 'entity/Profile';
-import { ProfileValidationErrors } from 'entity/Profile/model/types/Profile';
+import { ProfileValidationErrors } from '../../types/editableProfileCardSchema';
 import { getProfileValidationErrors } from './getProfileValidationErrors';
 
 describe('getProfileValidationErrors.test', () => {
     test('with some errors', () => {
         const state: DeepPartial<StateSchema> = {
-            profile: {
+            editableProfileCard: {
                 validationErrors: [ProfileValidationErrors.SERVER_ERROR],
             },
         };

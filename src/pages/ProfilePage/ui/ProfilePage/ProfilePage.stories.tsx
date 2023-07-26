@@ -7,7 +7,7 @@ import { Country } from 'entity/Country';
 import { Currency } from 'entity/Currency';
 import ProfilePage from './ProfilePage';
 
-const profile: Profile = {
+const editableProfileCard: Profile = {
     username: 'bakytov',
     age: 22,
     country: Country.Kazakhstan,
@@ -24,15 +24,15 @@ export default {
         backgroundColor: { control: 'color' },
     },
     decorators: [StoreDecorator({
-        profile: {
-            form: profile,
-            data: profile,
+        editableProfileCard: {
+            form: editableProfileCard,
+            data: editableProfileCard,
             readonly: true,
         },
     })],
 } as ComponentMeta<typeof ProfilePage>;
 
-const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
+const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage />;
 
 export const LightMode = Template.bind({});
 export const DarkMode = Template.bind({});
@@ -43,28 +43,28 @@ OrangeMode.decorators = [ThemeDecorator(Theme.ORANGE)];
 
 export const LightWithLoadingMode = Template.bind({});
 LightWithLoadingMode.decorators = [StoreDecorator({
-    profile: { isLoading: true, readonly: true },
+    editableProfileCard: { isLoading: true, readonly: true },
 })];
 export const DarkWithLoadingMode = Template.bind({});
 DarkWithLoadingMode.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-    profile: { isLoading: true, readonly: true },
+    editableProfileCard: { isLoading: true, readonly: true },
 })];
 
 export const OrangeWithLoadingMode = Template.bind({});
 OrangeWithLoadingMode.decorators = [ThemeDecorator(Theme.ORANGE), StoreDecorator({
-    profile: { isLoading: true, readonly: true },
+    editableProfileCard: { isLoading: true, readonly: true },
 })];
 
 export const LightWithErrorMode = Template.bind({});
 LightWithErrorMode.decorators = [StoreDecorator({
-    profile: { error: 'error', readonly: true },
+    editableProfileCard: { error: 'error', readonly: true },
 })];
 export const DarkWithErrorMode = Template.bind({});
 DarkWithErrorMode.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-    profile: { error: 'error', readonly: true },
+    editableProfileCard: { error: 'error', readonly: true },
 })];
 
 export const OrangeWithErrorMode = Template.bind({});
 OrangeWithErrorMode.decorators = [ThemeDecorator(Theme.ORANGE), StoreDecorator({
-    profile: { error: 'error', readonly: true },
+    editableProfileCard: { error: 'error', readonly: true },
 })];

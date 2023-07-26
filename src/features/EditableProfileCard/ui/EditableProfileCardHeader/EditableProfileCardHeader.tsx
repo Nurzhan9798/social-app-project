@@ -1,20 +1,21 @@
+import { Text } from 'shared/ui/Text/Text';
+import { HStack } from 'shared/ui/Stack';
 import { Button, ButtonColor, ButtonTheme } from 'shared/ui/Button/Button';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
-import {
-    getProfileForm, getProfileReadonly, profileAction, updateProfileData,
-} from 'entity/Profile';
-import { useTranslation } from 'react-i18next';
-import { Text } from 'shared/ui/Text/Text';
 import { getUserAuthData } from 'entity/User';
-import { HStack } from 'shared/ui/Stack';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
+import { editableProfileCardActions } from '../../model/slices/editableProfileCardSlice';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 
-interface ProfilePageHeaderProps {
+interface EditableProfileCardHeaderProps {
     className?: string;
 }
 
-export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
+export const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps) => {
     const { className } = props;
 
     const { t } = useTranslation();
@@ -25,10 +26,10 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
     const canEdit = userData?.id === profileData?.id;
 
     const onEditBtnClick = () => {
-        dispatch(profileAction.setReadonly(false));
+        dispatch(editableProfileCardActions.setReadonly(false));
     };
     const onCancelBtnClick = () => {
-        dispatch(profileAction.resetForm());
+        dispatch(editableProfileCardActions.resetForm());
     };
     const onsaveBtnClick = () => {
         dispatch(updateProfileData());

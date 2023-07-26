@@ -1,7 +1,7 @@
 import { Currency } from 'entity/Currency';
 import { Country } from 'entity/Country';
-import { validateProfileData } from 'entity/Profile/model/services/validateProfileData/validateProfileData';
-import { ProfileValidationErrors } from 'entity/Profile/model/types/Profile';
+import { validateProfileData } from './validateProfileData';
+import { ProfileValidationErrors } from '../../types/editableProfileCardSchema';
 
 const data = {
     lastname: 'Bakytov',

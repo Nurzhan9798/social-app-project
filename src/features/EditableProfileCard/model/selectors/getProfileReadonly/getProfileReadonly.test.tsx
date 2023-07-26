@@ -4,7 +4,7 @@ import { getProfileReadonly } from './getProfileReadonly';
 describe('getProfileReadonly.test', () => {
     test('Readonly is true', () => {
         const state: DeepPartial<StateSchema> = {
-            profile: {
+            editableProfileCard: {
                 readonly: true,
             },
         };
@@ -13,7 +13,7 @@ describe('getProfileReadonly.test', () => {
 
     test('Readonly is false', () => {
         const state: DeepPartial<StateSchema> = {
-            profile: {
+            editableProfileCard: {
                 readonly: false,
             },
         };

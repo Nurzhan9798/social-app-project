@@ -3,7 +3,6 @@ import { LoginFormSchema } from 'features/AuthByUsername';
 import {
     AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { ProfileSchema } from 'entity/Profile';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entity/Article';
 import { AddNewCommentSchema } from 'features/AddNewComment';
@@ -11,6 +10,7 @@ import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ScrollRestorationSchema } from 'features/ScrollRestoration';
 import { ArticleRecomendationListSchema } from 'features/ArticleRecomendationList';
 import { ArticleCommentsSchema } from 'pages/ArticleDetailsPage';
+import { EditableProfileCardSchema } from 'features/EditableProfileCard';
 
 export interface StateSchema {
     user: UserSchema;
@@ -18,11 +18,11 @@ export interface StateSchema {
 
     // async reducers
     loginForm?: LoginFormSchema;
-    profile?: ProfileSchema;
+    editableProfileCard?: EditableProfileCardSchema;
     articleDetails?: ArticleDetailsSchema;
 
-    articleComments: ArticleCommentsSchema;
-    articleRecommendationList: ArticleRecomendationListSchema;
+    articleComments?: ArticleCommentsSchema;
+    articleRecommendationList?: ArticleRecomendationListSchema;
     addNewComment?: AddNewCommentSchema;
     articlesPage?: ArticlesPageSchema;
 }

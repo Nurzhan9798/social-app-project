@@ -4,7 +4,7 @@ import { getProfileIsLoading } from './getProfileIsLoading';
 describe('getProfileIsLoading.test', () => {
     test('isLoading is true', () => {
         const state: DeepPartial<StateSchema> = {
-            profile: {
+            editableProfileCard: {
                 isLoading: true,
             },
         };
@@ -13,7 +13,7 @@ describe('getProfileIsLoading.test', () => {
 
     test('isLoading is false', () => {
         const state: DeepPartial<StateSchema> = {
-            profile: {
+            editableProfileCard: {
                 isLoading: false,
             },
         };
