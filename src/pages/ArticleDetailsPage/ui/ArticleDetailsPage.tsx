@@ -52,7 +52,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     const onSendComment = useCallback((text: string) => {
         dispatch(addCommentForArticle(text));
-    }, [dispatch]);
+        dispatch(fetchCommentsByArticleId(id));
+    }, [dispatch, id]);
 
     const backToList = useCallback(() => {
         navigate(RoutePath.articles);
@@ -70,12 +71,13 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page>
                 <VStack
-                    align="start"
+                    align="stretch"
                     gap="16"
                     className={className}
                 >
                     <Button
                         theme={ButtonTheme.OUTLINE}
+                        className={cls.backBtn}
                         onClick={backToList}
                     >
                         {t('Back to list')}
