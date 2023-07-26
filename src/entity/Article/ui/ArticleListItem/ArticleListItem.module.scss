@@ -1,36 +1,8 @@
 .LIST {
-    .header {
-        display: flex;
-        align-items: center;
-    }
-
-    .username {
-        margin-left: 8px;
-    }
-
-    .date {
-        margin-left: auto;
-    }
-
-    .title {
-        margin-top: 8px;
-    }
-
     .img {
         width: 100%;
         max-height: 250px;
         object-fit: cover;
-        margin: 16px 0;
-    }
-
-    .footer {
-        margin-top: 16px;
-        display: flex;
-        align-items: center;
-    }
-
-    .views {
-        margin-left: auto;
     }
 
     .textBlock {
@@ -40,15 +12,14 @@
 }
 
 .CARD {
-    width: 250px;
     cursor: pointer;
     transition: 0.2s;
     border-radius: 32px;
-    background-color: var(--dark-bg-color);
 
     .imgWrapper {
         position: relative;
-        min-height: 200px;
+        height: 200px;
+        width: 200px;
     }
 
     .img {
@@ -58,15 +29,9 @@
 
     .date {
         position: absolute;
-        right: 0;
+        right: 5px;
         top: 0;
         display: none;
-    }
-
-    .infoWrapper {
-        margin-top: 8px;
-        display: flex;
-        align-items: center;
     }
 
     .types p {
@@ -74,14 +39,6 @@
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
-    }
-
-    .views {
-        margin-left: auto;
-    }
-
-    .title {
-        margin-top: 8px;
     }
 
     .title p {

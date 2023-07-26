@@ -1,4 +1,3 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import React from 'react';
@@ -13,17 +12,17 @@ import { Icon } from 'shared/ui/Icon/Icon';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect';
+import { HStack, VStack } from 'shared/ui/Stack';
+import { articleDetailsReducers } from '../../model/slices/articleDetailsSlice';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleVideoBlockComponent } from '../ArticleVideoBlockComponent/ArticleVideoBlockComponent';
 import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
-import { articleDetailsReducers } from '../../model/slices/articleDetailsSlice';
 import { fetchArticleDetailsById } from '../../model/services/fetchArticleDetailsById/fetchArticleDetailsById';
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError';
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData';
 import { getArticleDetailsLoading } from '../../model/selectors/getArticleDetailsLoading/getArticleDetailsLoading';
-import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
     articleId: string;
@@ -56,7 +55,6 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
                 <ArticleCodeBlockComponent
                     key={block.id}
                     block={block}
-                    className={cls.block}
                 />
             );
         case ArticleBlockType.IMAGE:
@@ -64,14 +62,12 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
                 <ArticleImageBlockComponent
                     key={block.id}
                     block={block}
-                    className={cls.block}
                 />
             );
         case ArticleBlockType.TEXT:
             return (
                 <ArticleTextBlockComponent
                     key={block.id}
-                    className={cls.block}
                     block={block}
                 />
             );
@@ -79,7 +75,6 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
             return (
                 <ArticleVideoBlockComponent
                     key={block.id}
-                    className={cls.block}
                     block={block}
                 />
             );
@@ -92,11 +87,13 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
     if (loading) {
         content = (
             <>
-                <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
-                <Skeleton className={cls.title} width={300} height={32} />
-                <Skeleton className={cls.skeleton} width={600} height={24} />
-                <Skeleton className={cls.skeleton} width="100%" height={200} />
-                <Skeleton className={cls.skeleton} width="100%" height={200} />
+                <HStack max justify="center">
+                    <Skeleton width={200} height={200} border="50%" />
+                </HStack>
+                <Skeleton width={300} height={32} />
+                <Skeleton width={600} height={24} />
+                <Skeleton width="100%" height={200} />
+                <Skeleton width="100%" height={200} />
             </>
         );
     } else if (error) {
@@ -110,27 +107,28 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
     } else {
         content = (
             <>
-                <div className={cls.avatarWrapper}>
+                <HStack max justify="center">
                     <Avatar
                         size={200}
                         src={article?.img}
-                        className={cls.avatar}
                     />
-                </div>
+                </HStack>
                 <Text
-                    className={cls.title}
                     title={article?.title}
                     text={article?.subtitle}
                     size={TextSize.L}
                 />
-                <div className={cls.articleInfo}>
-                    <Icon className={cls.icon} Svg={EyeIcon} height={20} width={20} />
-                    <Text text={String(article?.views)} />
-                </div>
-                <div className={cls.articleInfo}>
-                    <Icon className={cls.icon} Svg={CalendarIcon} height={20} width={20} />
-                    <Text text={article?.createdAt} />
-                </div>
+                <VStack align="start" gap="8">
+                    <HStack gap="8">
+                        <Icon Svg={EyeIcon} height={20} width={20} />
+                        <Text text={String(article?.views)} />
+                    </HStack>
+                    <HStack gap="8">
+                        <Icon Svg={CalendarIcon} height={20} width={20} />
+                        <Text text={article?.createdAt} />
+                    </HStack>
+                </VStack>
+
                 {article?.blocks.map(renderBlock)}
             </>
 
@@ -139,9 +137,14 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.ArticleDetails, {}, [className])}>
+            <VStack
+                align="start"
+                gap="16"
+                max
+                className={className}
+            >
                 {content}
-            </div>
+            </VStack>
         </DynamicModuleLoader>
 
     );

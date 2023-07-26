@@ -18,6 +18,7 @@ interface ListboxProps<T extends string>{
     onChange?: (value: T) => void;
     readonly?: boolean;
     defaultValue?: string;
+    maxWidth?: boolean;
 }
 
 export const Listbox = memo(<T extends string>(props: ListboxProps<T>) => {
@@ -26,9 +27,10 @@ export const Listbox = memo(<T extends string>(props: ListboxProps<T>) => {
         label,
         options,
         value,
-        onChange,
         readonly,
         defaultValue,
+        maxWidth,
+        onChange,
     } = props;
 
     return (
@@ -37,7 +39,7 @@ export const Listbox = memo(<T extends string>(props: ListboxProps<T>) => {
             onChange={onChange}
             disabled={readonly}
             as="div"
-            className={classNames(cls.Listbox, {}, [className])}
+            className={classNames(cls.Listbox, { [cls.maxWidth]: maxWidth }, [className])}
         >
             {label && <HListbox.Label>{label}</HListbox.Label>}
             <HListbox.Button as={Fragment}>
@@ -60,7 +62,7 @@ export const Listbox = memo(<T extends string>(props: ListboxProps<T>) => {
                                     [cls.selected]: selected,
                                 }, [])}
                             >
-                                {option.value}
+                                {option.content}
                             </li>
                         )}
                     </HListbox.Option>

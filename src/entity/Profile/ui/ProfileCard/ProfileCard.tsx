@@ -8,6 +8,7 @@ import React from 'react';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { CountrySelect, Country } from 'entity/Country';
 import { CurrencySelect, Currency } from 'entity/Currency';
+import { HStack, VStack } from 'shared/ui/Stack';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -47,39 +48,66 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
+            <HStack
+                align="center"
+                justify="center"
+                max
+                className={classNames(cls.ProfileCard, {}, [className, cls.loading])}
+            >
                 <Loader />
-            </div>
+            </HStack>
         );
     }
 
     if (error) {
         return (
-            <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+            <HStack
+                align="center"
+                justify="center"
+                max
+                className={classNames(cls.ProfileCard, {}, [className, cls.error])}
+            >
                 <Text
                     theme={TextTheme.ERROR}
                     title={t('An error occurred while loading the profile')}
                     text={t('Try refreshing the page')}
                     align={TextAlign.CENTER}
                 />
-            </div>
+            </HStack>
         );
     }
     return (
-        <div className={classNames(cls.ProfileCard, {}, [className])}>
+        <VStack
+            align="start"
+            gap="16"
+            className={classNames(cls.ProfileCard, {}, [className])}
+        >
             {data?.avatar && (
-                <div className={cls.avatar}>
+                <HStack
+                    justify="center"
+                    max
+                >
                     <Avatar size={100} src={data.avatar} alt="" />
-                </div>
+                </HStack>
             )}
-            <div className={cls.content}>
-                <div className={cls.contentDiv}>
+            <HStack
+                align="start"
+                gap="16"
+                max
+                className={cls.content}
+            >
+                <VStack
+                    align="start"
+                    gap="16"
+                    className={cls.contentDiv}
+                >
                     <Input
                         disabled={readonly}
                         label={t('First name')}
                         placeholder={t('First name')}
                         value={data?.firstname}
                         onChange={onFirstnameChange}
+                        maxWidth
                     />
                     <Input
                         disabled={readonly}
@@ -87,6 +115,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         placeholder={t('Last name')}
                         value={data?.lastname}
                         onChange={onLastnameChange}
+                        maxWidth
                     />
                     <Input
                         disabled={readonly}
@@ -94,6 +123,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         placeholder={t('Age')}
                         value={data?.age}
                         onChange={onAgeChange}
+                        maxWidth
                     />
                     <Input
                         disabled={readonly}
@@ -101,16 +131,22 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         placeholder={t('City')}
                         value={data?.city}
                         onChange={onCityChange}
+                        maxWidth
                     />
 
-                </div>
-                <div className={cls.contentDiv}>
+                </VStack>
+                <VStack
+                    align="start"
+                    gap="16"
+                    className={cls.contentDiv}
+                >
                     <Input
                         disabled={readonly}
                         label={t('Username')}
                         placeholder={t('Username')}
                         value={data?.username}
                         onChange={onUsernameChange}
+                        maxWidth
                     />
                     <Input
                         disabled={readonly}
@@ -118,20 +154,23 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         placeholder={t('Link to avatar')}
                         value={data?.avatar}
                         onChange={onAvatarChange}
+                        maxWidth
                     />
                     <CountrySelect
                         readonly={readonly}
                         value={data?.country}
+                        maxWidth
                         onChange={onCountryChange}
                     />
                     <CurrencySelect
                         readonly={readonly}
                         value={data?.currency}
+                        maxWidth
                         onChange={onCurrencyChange}
                     />
-                </div>
+                </VStack>
 
-            </div>
-        </div>
+            </HStack>
+        </VStack>
     );
 };

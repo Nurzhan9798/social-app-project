@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo, useMemo } from 'react';
+import React, { memo, useMemo } from 'react';
 import { Select, SelectOption } from 'shared/ui/Select/Select';
-import cls from './LangSwitcher.module.scss';
+import { HStack } from 'shared/ui/Stack';
+import { Listbox } from 'shared/ui/Listbox/Listbox';
 
 interface LangSwitcherProps {
     className?: string;
@@ -35,12 +35,16 @@ export const LangSwitcher = memo((props: LangSwitcherProps) => {
     ], [t]);
 
     return (
-        <div className={classNames(cls.LangSwitcher, {}, [className])}>
-            <Select
-                value={i18n.language}
-                onChange={changeLanguage}
+        <HStack
+            gap="4"
+            className={className}
+        >
+
+            <Listbox
                 options={languageOptions}
+                value={t(i18n.language)}
+                onChange={changeLanguage}
             />
-        </div>
+        </HStack>
     );
 });

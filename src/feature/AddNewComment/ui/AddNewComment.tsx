@@ -6,6 +6,7 @@ import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { useCallback } from 'react';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
+import { HStack } from 'shared/ui/Stack';
 import { getAddNewCommentText } from '../model/selectors/addNewCommentSelectors';
 import { addNewCommentActions, addNewCommentReducers } from '../model/slices/addNewCommentSlice';
 import cls from './AddNewComment.module.scss';
@@ -36,7 +37,11 @@ const AddNewComment = (props: AddNewCommentProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.AddNewComment, {}, [className])}>
+            <HStack
+                gap="8"
+                max
+                className={classNames(cls.AddNewComment, {}, [className])}
+            >
                 <Input
                     label={t('Add new comment')}
                     placeholder={t('Comment')}
@@ -47,7 +52,7 @@ const AddNewComment = (props: AddNewCommentProps) => {
                 <Button onClick={onSendHandler}>
                     {t('Send')}
                 </Button>
-            </div>
+            </HStack>
         </DynamicModuleLoader>
 
     );

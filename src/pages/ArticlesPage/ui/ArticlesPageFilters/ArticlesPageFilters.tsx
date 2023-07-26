@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
 import { SortOrder } from 'shared/types/SortOrder';
 import { useDebounce } from 'shared/hooks/useDebounce';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import {
@@ -19,7 +20,6 @@ import {
     getArticlesPageType,
     getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
-import cls from './ArticlesPageFilters.module.scss';
 
 interface ArticlesPageFiltersProps {
     className?: string;
@@ -67,8 +67,12 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
     }, [dispatch, fetchData]);
 
     return (
-        <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
-            <div className={cls.header}>
+        <VStack
+            align="stretch"
+            gap="16"
+            className={className}
+        >
+            <HStack justify="between">
                 <ArticleSortSelector
                     sort={sort}
                     order={order}
@@ -76,11 +80,10 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
                     onOrderChange={onOrderChange}
                 />
                 <ArticleViewSelector
-                    className={cls.view}
                     view={view}
                     onViewClick={onChangeView}
                 />
-            </div>
+            </HStack>
             <Input
                 label={t('Search')}
                 placeholder={t('Search')}
@@ -91,6 +94,6 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
                 value={type}
                 onChangeType={onTabClick}
             />
-        </div>
+        </VStack>
     );
 };

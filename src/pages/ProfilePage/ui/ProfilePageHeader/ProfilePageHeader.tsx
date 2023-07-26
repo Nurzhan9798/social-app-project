@@ -1,5 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme, ButtonColor } from 'shared/ui/Button/Button';
+import { Button, ButtonColor, ButtonTheme } from 'shared/ui/Button/Button';
 import React from 'react';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
@@ -9,7 +8,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
 import { getUserAuthData } from 'entity/User';
-import cls from './ProfilePageHeader.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 interface ProfilePageHeaderProps {
     className?: string;
@@ -36,10 +35,15 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
     };
 
     return (
-        <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+        <HStack
+            justify="between"
+            className={className}
+        >
             <Text title={t('Profile card')} />
             {canEdit && (
-                <div className={cls.buttons}>
+                <HStack
+                    gap="8"
+                >
                     {readonly
                         ? (
                             <Button
@@ -66,8 +70,8 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                                 </Button>
                             </>
                         )}
-                </div>
+                </HStack>
             )}
-        </div>
+        </HStack>
     );
 };

@@ -3,6 +3,7 @@ import { Icon } from 'shared/ui/Icon/Icon';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import CardTileIcon from 'shared/assets/icons/card-tile.svg';
 import ListIcon from 'shared/assets/icons/list.svg';
+import { HStack } from 'shared/ui/Stack';
 import { ArticleView } from '../../model/types/article';
 import cls from './ArticleViewSelector.module.scss';
 
@@ -34,7 +35,10 @@ export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
     };
 
     return (
-        <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
+        <HStack
+            gap="8"
+            className={classNames('', {}, [className])}
+        >
             {
                 viewTypes.map((viewType, index) => (
                     <Button
@@ -51,6 +55,6 @@ export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
                     </Button>
                 ))
             }
-        </div>
+        </HStack>
     );
 };

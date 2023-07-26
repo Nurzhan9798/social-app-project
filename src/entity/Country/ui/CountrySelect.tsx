@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Listbox } from 'shared/ui/Listbox/Listbox';
@@ -9,6 +9,7 @@ interface CountrySelectProps {
     readonly?: boolean;
     value?: Country;
     onChange?: (value: Country) => void;
+    maxWidth?: boolean;
 }
 
 const options = [
@@ -24,6 +25,7 @@ export const CountrySelect = (props: CountrySelectProps) => {
         className,
         readonly,
         value,
+        maxWidth,
         onChange,
     } = props;
 
@@ -31,12 +33,13 @@ export const CountrySelect = (props: CountrySelectProps) => {
 
     return (
         <Listbox
-            className={classNames('', {}, [className])}
+            className={className}
             label={t('Country')}
             defaultValue={t('Country')}
             options={options}
             readonly={readonly}
             value={value}
+            maxWidth={maxWidth}
             onChange={onChange}
         />
     );

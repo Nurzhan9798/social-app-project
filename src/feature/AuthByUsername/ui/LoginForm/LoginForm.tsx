@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useCallback, useEffect } from 'react';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
+import { VStack } from 'shared/ui/Stack';
 import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginFormActions, loginFormReducer } from '../../model/slices/loginFormSlice';
@@ -64,7 +65,11 @@ const LoginForm = (props: LoginFormProps) => {
 
     return (
         <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
-            <div className={classNames(cls.LoginForm, {}, [className])}>
+            <VStack
+                align="start"
+                gap="16"
+                className={className}
+            >
                 <Text title={t('Authorization form')} />
                 {error && <Text text={t('You entered an incorrect username or password')} theme={TextTheme.ERROR} />}
                 <Input
@@ -74,6 +79,7 @@ const LoginForm = (props: LoginFormProps) => {
                     value={username}
                     onChange={onChangeUsername}
                     disabled={isLoading}
+                    maxWidth
                 />
                 <Input
                     type="password"
@@ -82,6 +88,7 @@ const LoginForm = (props: LoginFormProps) => {
                     value={password}
                     onChange={onChangePassword}
                     disabled={isLoading}
+                    maxWidth
                 />
                 <Button
                     className={cls.loginBtn}
@@ -90,7 +97,7 @@ const LoginForm = (props: LoginFormProps) => {
                 >
                     {t('Login')}
                 </Button>
-            </div>
+            </VStack>
         </DynamicModuleLoader>
 
     );

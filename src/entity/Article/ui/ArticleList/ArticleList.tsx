@@ -19,7 +19,6 @@ const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.CARD 
     .fill(0)
     .map((item, index) => (
         <ArticleListItemSkeleton
-            className={cls.card}
             key={index}
             view={view}
         />
@@ -38,7 +37,7 @@ export const ArticleList = (props: ArticleListProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+            <div className={classNames('', {}, [className, cls[view]])}>
                 {getSkeletons(view)}
             </div>
         );

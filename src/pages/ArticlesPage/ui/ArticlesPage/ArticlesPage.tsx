@@ -1,4 +1,3 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
 import { ArticleList } from 'entity/Article';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
@@ -6,6 +5,7 @@ import { useInitialEffect } from 'shared/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Page } from 'widget/Page';
+import { VStack } from 'shared/ui/Stack';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
@@ -15,7 +15,6 @@ import {
     getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
 import { articlesPageReducer, getArticles } from '../../model/slices/articlesPageSlice';
-import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
     className?: string;
@@ -42,7 +41,11 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page onScrollEnd={onLoadNextPart}>
-                <div className={classNames(cls.ArticlesPage, {}, [className])}>
+                <VStack
+                    align="stretch"
+                    gap="16"
+                    className={className}
+                >
                     <ArticlesPageFilters />
 
                     <ArticleList
@@ -50,7 +53,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                         isLoading={loading}
                         articles={articles}
                     />
-                </div>
+                </VStack>
             </Page>
         </DynamicModuleLoader>
     );

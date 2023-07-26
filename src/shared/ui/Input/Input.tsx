@@ -11,6 +11,7 @@ interface InputProps extends HTMLInputProps {
     value?: string | number;
     onChange?: (value: string) => void;
     autoFocus?: boolean;
+    maxWidth?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -18,10 +19,11 @@ export const Input = memo((props: InputProps) => {
         className,
         label,
         value,
-        onChange,
         type,
         autoFocus,
         disabled = false,
+        maxWidth,
+        onChange,
         ...otherProps
     } = props;
 
@@ -41,7 +43,7 @@ export const Input = memo((props: InputProps) => {
     };
 
     return (
-        <div className={classNames(cls.InputWrapper, {}, [className])}>
+        <div className={classNames(cls.InputWrapper, { [cls.maxWidth]: maxWidth }, [className])}>
             {label && <p className={cls.label}>{`${label}:`}</p>}
             <input
                 ref={ref}

@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
+import { VStack } from 'shared/ui/Stack';
 import { ArticleTextBlock } from '../../model/types/article';
-import cls from './ArticleTextBlockComponent.module.scss';
 
 interface ArticleTextBlockProps {
     className?: string;
@@ -12,19 +12,31 @@ export const ArticleTextBlockComponent = (props: ArticleTextBlockProps) => {
     const { className, block } = props;
 
     return (
-        <div className={classNames(cls.ArticleTextBlock, {}, [className])}>
+        <VStack
+            gap="16"
+            align="start"
+            max
+            className={classNames('', {}, [className])}
+        >
             {
-                block.title && <Text title={block.title} className={cls.title} />
+                block.title && <Text title={block.title} />
             }
-            {
-                block.paragraphs.map((paragraph, index) => (
-                    <Text
-                        key={index}
-                        text={paragraph}
-                        className={cls.paragraph}
-                    />
-                ))
-            }
-        </div>
+            <VStack
+                gap="8"
+                align="start"
+                max
+            >
+
+                {
+                    block.paragraphs.map((paragraph, index) => (
+                        <Text
+                            key={index}
+                            text={paragraph}
+                        />
+                    ))
+                }
+            </VStack>
+
+        </VStack>
     );
 };

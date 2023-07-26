@@ -1,4 +1,3 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import {
     fetchProfileData,
@@ -22,8 +21,8 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect';
 import { Page } from 'widget/Page';
-import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
-import cls from './ProfilePage.module.scss';
+import { VStack } from 'shared/ui/Stack';
+import { ProfilePageHeader } from '../ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -88,7 +87,11 @@ const ProfilePage = (props: ProfilePageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page>
-                <div className={classNames(cls.ProfilePage, {}, [className])}>
+                <VStack
+                    align="stretch"
+                    gap="16"
+                    className={className}
+                >
                     <ProfilePageHeader />
                     {
                         profileValidationErrors && profileValidationErrors.map((err) => (
@@ -113,7 +116,7 @@ const ProfilePage = (props: ProfilePageProps) => {
                         onCurrencyChange={onCurrencyChange}
                         onCountryChange={onCountryChange}
                     />
-                </div>
+                </VStack>
             </Page>
         </DynamicModuleLoader>
 

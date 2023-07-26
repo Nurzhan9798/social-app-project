@@ -13,6 +13,7 @@ import { AddNewComment } from 'feature/AddNewComment';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routre/routeConfig';
 import { Page } from 'widget/Page';
+import { VStack } from 'shared/ui/Stack';
 import {
     fetchArticleRecommendations,
 } from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
@@ -68,10 +69,13 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page>
-                <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+                <VStack
+                    align="start"
+                    gap="16"
+                    className={className}
+                >
                     <Button
                         theme={ButtonTheme.OUTLINE}
-                        className={cls.backBtn}
                         onClick={backToList}
                     >
                         {t('Back to list')}
@@ -96,7 +100,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                         comments={comments}
                         isLoading={commentsLoading}
                     />
-                </div>
+                </VStack>
             </Page>
         </DynamicModuleLoader>
 

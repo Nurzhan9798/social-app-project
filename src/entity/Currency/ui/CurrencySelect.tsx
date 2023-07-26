@@ -9,6 +9,7 @@ interface CurrencySelectProps {
     value?: Currency;
     onChange?: (value: Currency) => void;
     readonly?: boolean;
+    maxWidth?: boolean;
 }
 
 const options = [
@@ -23,6 +24,7 @@ export const CurrencySelect = (props: CurrencySelectProps) => {
         value,
         onChange,
         readonly,
+        maxWidth,
     } = props;
 
     const { t } = useTranslation();
@@ -36,6 +38,7 @@ export const CurrencySelect = (props: CurrencySelectProps) => {
             value={value}
             onChange={onChange}
             readonly={readonly}
+            maxWidth={maxWidth}
         />
     );
 };
