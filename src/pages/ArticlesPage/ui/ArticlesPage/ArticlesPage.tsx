@@ -47,7 +47,6 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                     className={className}
                 >
                     <ArticlesPageFilters />
-
                     <ArticleList
                         view={view}
                         isLoading={loading}

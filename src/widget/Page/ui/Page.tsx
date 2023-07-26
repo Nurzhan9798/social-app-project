@@ -5,7 +5,7 @@ import {
 import { useInfiniteScroll } from 'shared/hooks/useInfiniteScroll';
 import { useLocation } from 'react-router-dom';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
-import { getScrollRestorationByPath, scrollRestorationActions } from 'feature/ScrollRestoration';
+import { getScrollRestorationByPath, scrollRestorationActions } from 'features/ScrollRestoration';
 import { useSelector } from 'react-redux';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect';

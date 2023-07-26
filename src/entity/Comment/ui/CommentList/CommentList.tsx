@@ -22,7 +22,7 @@ export const CommentList = (props: CommentListProps) => {
         return (
             <VStack
                 align="start"
-                gap="16"
+                gap="8"
                 className={className}
             >
                 {isLoading && (
@@ -40,7 +40,7 @@ export const CommentList = (props: CommentListProps) => {
     return (
         <VStack
             align="start"
-            gap="16"
+            gap="8"
             className={className}
         >
             {

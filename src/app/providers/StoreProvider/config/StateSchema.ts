@@ -1,15 +1,16 @@
 import { UserSchema } from 'entity/User';
-import { LoginFormSchema } from 'feature/AuthByUsername';
+import { LoginFormSchema } from 'features/AuthByUsername';
 import {
     AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { ProfileSchema } from 'entity/Profile';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entity/Article';
-import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
-import { AddNewCommentSchema } from 'feature/AddNewComment';
+import { AddNewCommentSchema } from 'features/AddNewComment';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
-import { ScrollRestorationSchema } from 'feature/ScrollRestoration';
+import { ScrollRestorationSchema } from 'features/ScrollRestoration';
+import { ArticleRecomendationListSchema } from 'features/ArticleRecomendationList';
+import { ArticleCommentsSchema } from 'pages/ArticleDetailsPage';
 
 export interface StateSchema {
     user: UserSchema;
@@ -20,7 +21,8 @@ export interface StateSchema {
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;
 
-    articleDetailsPage: ArticleDetailsPageSchema;
+    articleComments: ArticleCommentsSchema;
+    articleRecommendationList: ArticleRecomendationListSchema;
     addNewComment?: AddNewCommentSchema;
     articlesPage?: ArticlesPageSchema;
 }
