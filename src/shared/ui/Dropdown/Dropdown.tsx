@@ -5,7 +5,7 @@ import { DropdownDirection } from 'shared/types/ui';
 import { AppLink } from '../AppLink/AppLink';
 import cls from './Dropdown.module.scss';
 
-export interface DropDownOption {
+export interface DropdownOption {
     content: string;
     disabled?: boolean;
     onClick?: () => void;
@@ -14,7 +14,7 @@ export interface DropDownOption {
 interface DropdownProps {
     className?: string;
     trigger: ReactNode;
-    options: DropDownOption[];
+    options: DropdownOption[];
     direction?: DropdownDirection;
 }
 

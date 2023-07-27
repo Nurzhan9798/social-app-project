@@ -1,11 +1,15 @@
-import React, { memo, useState } from 'react';
+import React, {
+    memo, useCallback, useMemo, useState,
+} from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, userAction } from 'entity/User';
+import {
+    getUserAuthData, isAdmin, isManager, userAction,
+} from 'entity/User';
 import { useNavigate } from 'react-router-dom';
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Dropdown, DropdownOption } from 'shared/ui/Dropdown/Dropdown';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { RoutePath } from 'shared/config/routre/routeConfig';
 import { LoginModal } from 'features/AuthByUsername';
@@ -21,7 +25,11 @@ export const Navbar = memo((props: NavbarProps) => {
     const { t } = useTranslation();
     const authData = useSelector(getUserAuthData);
     const dispatch = useDispatch();
+    const isUserAdmin = useSelector(isAdmin);
+    const isUserManager = useSelector(isManager);
+    const isAdminPanelAvailable = isUserAdmin || isUserManager;
     const navigate = useNavigate();
+
     const onCloseAuthModal = () => {
         setIsAuthModalOpen(false);
     };
@@ -30,10 +38,10 @@ export const Navbar = memo((props: NavbarProps) => {
         setIsAuthModalOpen(true);
     };
 
-    const logout = () => {
+    const logout = useCallback(() => {
         dispatch(userAction.logout());
         navigate('/');
-    };
+    }, [dispatch, navigate]);
 
     if (authData) {
         return (
@@ -42,6 +50,12 @@ export const Navbar = memo((props: NavbarProps) => {
                     <Dropdown
                         trigger={<Avatar size={30} src={authData.avatar} />}
                         options={[
+                            ...(
+                                isAdminPanelAvailable ? [{
+                                    content: t('Admin Panel'),
+                                    href: RoutePath.admin_panel,
+                                }] : []
+                            ),
                             {
                                 content: t('Profile'),
                                 href: RoutePath.profile + authData.id,
@@ -49,8 +63,7 @@ export const Navbar = memo((props: NavbarProps) => {
                             {
                                 content: t('Logout'),
                                 onClick: logout,
-                            },
-                        ]}
+                            }]}
                         direction="bottom left"
                     />
                 </div>
