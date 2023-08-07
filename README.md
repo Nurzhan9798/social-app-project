@@ -1,4 +1,8 @@
 # social-app-project
+## Demo
+[Netlify](https://tourmaline-kringle-b32339.netlify.app)
+
+
 ## Запуск проекта
 
 ```
